@@ -23,10 +23,6 @@
     //    self.navigationController.tabBarItem.title = @"Details";
 }
 
-- (void) viewWillAppear:(BOOL)animated
-{
-}
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.infoArray.count;

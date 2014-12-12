@@ -8,6 +8,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *eventButton;
 @property (strong, nonatomic) IBOutlet UIButton *detailsButton;
 @property (strong, nonatomic) NSArray *locationsArray;
+@property (strong, nonatomic) UIImage *pinImage;
+@property MKPointAnnotation *busAnnotation;
 
 @end
 
@@ -15,6 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+
+
+
+
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = 41.89373984;
+    coordinate.longitude = -87.63532979;
+
+    self.busAnnotation = [[MKPointAnnotation alloc] init];
 
     //Design for Buttons
     self.eventButton.layer.cornerRadius = 8;
@@ -53,20 +65,25 @@
         for (PFObject * object in self.locationsArray) {
             PFGeoPoint * point = object[@"Location"];
 
-            if (point) {
+            [object[@"pinImage"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
 
-                MKPointAnnotation * busAnnotation = [[MKPointAnnotation alloc] init];
+                if (point) {
 
-                CLLocationCoordinate2D coordinate;
+                    self.busAnnotation = [[MKPointAnnotation alloc] init];
 
-                coordinate.latitude = point.latitude;
-                coordinate.longitude = point.longitude;
+                    self.pinImage = [UIImage imageWithData:data];
 
-                busAnnotation.coordinate = coordinate;
-                busAnnotation.title = object[@"Event"];
+                    CLLocationCoordinate2D coordinate;
 
-                [self.mapView addAnnotation:busAnnotation];
-            }
+                    coordinate.latitude = point.latitude;
+                    coordinate.longitude = point.longitude;
+
+                    _busAnnotation.coordinate = coordinate;
+                    _busAnnotation.title = object[@"Event"];
+
+                    [self.mapView addAnnotation:self.busAnnotation];
+                }
+            }];
         }
     }];
 }
@@ -74,10 +91,14 @@
 //This Delegate method allowes you to modify the pins and the views above them
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    MKPinAnnotationView * pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+    MKPinAnnotationView * pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotation.title];
 
     //shows the business over the pin
     pin.canShowCallout = YES;
+
+    pin.pinColor = MKPinAnnotationColorPurple;
+
+    pin.image = self.pinImage;
 
     // pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
     pin.animatesDrop = YES;
@@ -85,7 +106,8 @@
     return pin;
 }
 
-//map zooms in on pin the user taps
+// When the anotation is tapped
+//map zooms in tapped on pin
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     NSLog(@"Pin was tapped: %@", view.annotation.title);
