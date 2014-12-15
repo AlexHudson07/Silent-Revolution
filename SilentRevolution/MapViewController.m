@@ -4,14 +4,11 @@
 #import "DetailsViewController.h"
 
 
-static int i;
-
 @interface MapViewController () <MKMapViewDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIButton *eventButton;
 @property (strong, nonatomic) IBOutlet UIButton *detailsButton;
 @property (strong, nonatomic) NSArray *locationsArray;
-@property (strong, nonatomic) NSMutableArray *imagesArray;
 
 
 @end
@@ -24,9 +21,6 @@ static int i;
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = 41.89373984;
     coordinate.longitude = -87.63532979;
-
-    self.imagesArray = [NSMutableArray array];
-   // self.busAnnotation = [[MKPointAnnotation alloc] init];
 
     //Design for Buttons
     self.eventButton.layer.cornerRadius = 8;
@@ -67,13 +61,9 @@ static int i;
         for (PFObject *object in self.locationsArray) {
             PFGeoPoint *point = object[@"Location"];
 
-            [object[@"pinImage"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-
                 if (point) {
 
                     MKPointAnnotation *busAnnotation = [[MKPointAnnotation alloc] init];
-
-                    [self.imagesArray addObject:[UIImage imageWithData:data]];
 
                     CLLocationCoordinate2D coordinate;
 
@@ -85,7 +75,6 @@ static int i;
 
                     [self.mapView addAnnotation:busAnnotation];
                 }
-            }];
         }
     }];
 }
@@ -98,10 +87,7 @@ static int i;
     //shows the business over the pin
     pin.canShowCallout = YES;
 
- //   if (i < self.imagesArray.count){
-    pin.image = [self.imagesArray objectAtIndex:i];
-  //  }
-    i++;
+    pin.image = [UIImage imageNamed:@"hp"];
 
    //  pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
 
@@ -130,31 +116,31 @@ static int i;
     [self.mapView setRegion:region animated:YES];
 }
 
-////map zooms out when map user untaps pin
-//- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
-//
-//    //CLLocationCoordinate2D centerCoordinate = view.annotation.coordinate;
-//
-//
-//    //Zooms in to Manhattan
-//    CLLocationDegrees longitude = -73.9597;
-//    CLLocationDegrees latitude =  40.7903;
-//
-//    CLLocationCoordinate2D centerCoordinate;
-//
-//    centerCoordinate.longitude = longitude;
-//    centerCoordinate.latitude = latitude;
-//
-//    MKCoordinateSpan coordinateSpan;
-//    coordinateSpan.latitudeDelta = .25;
-//    coordinateSpan.longitudeDelta = .25;
-//
-//    MKCoordinateRegion region;
-//    region.center = centerCoordinate;
-//    region.span = coordinateSpan;
-//
-//    [self.mapView setRegion:region animated:YES];
-//}
+//map zooms out when map user untaps pin
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
+
+    //CLLocationCoordinate2D centerCoordinate = view.annotation.coordinate;
+
+
+    //Zooms in to Manhattan
+    CLLocationDegrees longitude = -73.9597;
+    CLLocationDegrees latitude =  40.7903;
+
+    CLLocationCoordinate2D centerCoordinate;
+
+    centerCoordinate.longitude = longitude;
+    centerCoordinate.latitude = latitude;
+
+    MKCoordinateSpan coordinateSpan;
+    coordinateSpan.latitudeDelta = .25;
+    coordinateSpan.longitudeDelta = .25;
+
+    MKCoordinateRegion region;
+    region.center = centerCoordinate;
+    region.span = coordinateSpan;
+
+    [self.mapView setRegion:region animated:YES];
+}
 
 - (IBAction)onEventsButtonPressed:(id)sender
 {
@@ -177,5 +163,20 @@ static int i;
     vc.infoArray = self.locationsArray;
 }
 
+
+MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+[request setSource:[MKMapItem mapItemForCurrentLocation]];
+[request setDestination:myMapItem];
+[request setTransportType:MKDirectionsTransportTypeAny]; // This can be limited to automobile and walking directions.
+[request setRequestsAlternateRoutes:YES]; // Gives you several route options.
+MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+[directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+    if (!error) {
+        for (MKRoute *route in [response routes]) {
+            [myMapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
+            // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties.
+        }
+    }
+}];
 
 @end
