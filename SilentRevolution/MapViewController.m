@@ -10,6 +10,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *detailsButton;
 @property (strong, nonatomic) NSArray *locationsArray;
 
+@property (strong, nonatomic) MKMapItem *destination;
+
 
 @end
 
@@ -17,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.mapView.showsUserLocation = YES;
 
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = 41.89373984;
@@ -46,6 +50,28 @@
     [self.mapView setRegion:region animated:NO];
 
     [self loadLocations];
+}
+
+- (void)getDirections
+{
+    MKDirectionsRequest *request =
+    [[MKDirectionsRequest alloc] init];
+
+    request.source = [MKMapItem mapItemForCurrentLocation];
+
+    request.destination = _destination;
+    request.requestsAlternateRoutes = NO;
+    MKDirections *directions =
+    [[MKDirections alloc] initWithRequest:request];
+
+    [directions calculateDirectionsWithCompletionHandler:
+     ^(MKDirectionsResponse *response, NSError *error) {
+         if (error) {
+             // Handle error
+         } else {
+  //           [self showRoute:response];
+         }
+     }];
 }
 
 -(void)loadLocations{
@@ -164,19 +190,6 @@
 }
 
 
-MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
-[request setSource:[MKMapItem mapItemForCurrentLocation]];
-[request setDestination:myMapItem];
-[request setTransportType:MKDirectionsTransportTypeAny]; // This can be limited to automobile and walking directions.
-[request setRequestsAlternateRoutes:YES]; // Gives you several route options.
-MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
-[directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
-    if (!error) {
-        for (MKRoute *route in [response routes]) {
-            [myMapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
-            // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties.
-        }
-    }
-}];
+
 
 @end
