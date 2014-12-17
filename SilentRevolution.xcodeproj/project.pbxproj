@@ -147,8 +147,8 @@
 				5DE9CB051A3A861700F18C0A /* DetailsViewController.m */,
 				5DE9CB071A3A867E00F18C0A /* DetailsTableViewCell.h */,
 				5DE9CB081A3A867E00F18C0A /* DetailsTableViewCell.m */,
-				5D4F4EA41A4139C4003F2144 /* Resources */,
 				5DE9CAD21A3A709500F18C0A /* LaunchScreen.xib */,
+				5D4F4EA41A4139C4003F2144 /* Resources */,
 				5DE9CAC31A3A709500F18C0A /* Supporting Files */,
 			);
 			path = SilentRevolution;

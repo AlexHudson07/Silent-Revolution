@@ -103,7 +103,7 @@
     //shows the business over the pin
     pin.canShowCallout = YES;
 
-    pin.image = [UIImage imageNamed:@"pin"];
+    pin.image = [UIImage imageNamed:@"pin2"];
 
    //  pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
 
