@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D4F4EA61A4139E8003F2144 /* Jura-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5D4F4EA51A4139E8003F2144 /* Jura-Medium.otf */; };
 		5DE9CAC61A3A709500F18C0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9CAC51A3A709500F18C0A /* main.m */; };
 		5DE9CAC91A3A709500F18C0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9CAC81A3A709500F18C0A /* AppDelegate.m */; };
 		5DE9CACC1A3A709500F18C0A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9CACB1A3A709500F18C0A /* MapViewController.m */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D4F4EA51A4139E8003F2144 /* Jura-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Medium.otf"; sourceTree = "<group>"; };
 		5DE9CAC01A3A709500F18C0A /* SilentRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilentRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE9CAC41A3A709500F18C0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DE9CAC51A3A709500F18C0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D4F4EA41A4139C4003F2144 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5D4F4EA51A4139E8003F2144 /* Jura-Medium.otf */,
+				5DE9CAD01A3A709500F18C0A /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		5DE9CAB71A3A709500F18C0A = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +147,7 @@
 				5DE9CB051A3A861700F18C0A /* DetailsViewController.m */,
 				5DE9CB071A3A867E00F18C0A /* DetailsTableViewCell.h */,
 				5DE9CB081A3A867E00F18C0A /* DetailsTableViewCell.m */,
-				5DE9CAD01A3A709500F18C0A /* Images.xcassets */,
+				5D4F4EA41A4139C4003F2144 /* Resources */,
 				5DE9CAD21A3A709500F18C0A /* LaunchScreen.xib */,
 				5DE9CAC31A3A709500F18C0A /* Supporting Files */,
 			);
@@ -272,6 +283,7 @@
 			files = (
 				5DE9CACF1A3A709500F18C0A /* Main.storyboard in Resources */,
 				5DE9CAD41A3A709500F18C0A /* LaunchScreen.xib in Resources */,
+				5D4F4EA61A4139E8003F2144 /* Jura-Medium.otf in Resources */,
 				5DE9CAD11A3A709500F18C0A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

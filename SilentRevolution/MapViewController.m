@@ -10,9 +10,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *detailsButton;
 @property (strong, nonatomic) NSArray *locationsArray;
 
-@property (strong, nonatomic) MKMapItem *destination;
-
-
 @end
 
 @implementation MapViewController
@@ -20,7 +17,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.mapView.showsUserLocation = YES;
+    self.navigationItem.title = @"Silent Revolution";
+
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"JuraMedium" size:40],
+      NSFontAttributeName, nil]];
+
+    NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:40]
+                                  };
+
+    [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
+
+
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:123.f/255 green:174.f/255 blue:45.f/2555 alpha:1];
 
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = 41.89373984;
@@ -52,27 +63,6 @@
     [self loadLocations];
 }
 
-- (void)getDirections
-{
-    MKDirectionsRequest *request =
-    [[MKDirectionsRequest alloc] init];
-
-    request.source = [MKMapItem mapItemForCurrentLocation];
-
-    request.destination = _destination;
-    request.requestsAlternateRoutes = NO;
-    MKDirections *directions =
-    [[MKDirections alloc] initWithRequest:request];
-
-    [directions calculateDirectionsWithCompletionHandler:
-     ^(MKDirectionsResponse *response, NSError *error) {
-         if (error) {
-             // Handle error
-         } else {
-  //           [self showRoute:response];
-         }
-     }];
-}
 
 -(void)loadLocations{
 
@@ -113,7 +103,7 @@
     //shows the business over the pin
     pin.canShowCallout = YES;
 
-    pin.image = [UIImage imageNamed:@"hp"];
+    pin.image = [UIImage imageNamed:@"pin"];
 
    //  pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
 
@@ -144,9 +134,6 @@
 
 //map zooms out when map user untaps pin
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
-
-    //CLLocationCoordinate2D centerCoordinate = view.annotation.coordinate;
-
 
     //Zooms in to Manhattan
     CLLocationDegrees longitude = -73.9597;

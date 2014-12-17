@@ -19,8 +19,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //Navigationbar cutomization
+    self.navigationController.hidesBarsOnSwipe = YES;
+
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    //    self.navigationController.tabBarItem.title = @"Details";
+    self.navigationItem.title = @"Details";
+
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"JuraMedium" size:40],
+      NSFontAttributeName, nil]];
+
+    NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:40]
+                                  };
+
+    [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
+
+
+    //Back button
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:21]
+       }
+     forState:UIControlStateNormal];
+
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
