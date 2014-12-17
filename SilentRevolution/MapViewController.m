@@ -105,7 +105,7 @@
 
     pin.image = [UIImage imageNamed:@"pin2"];
 
-   //  pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
+     pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
     
     //pin.animatesDrop = YES;
@@ -153,6 +153,16 @@
     region.span = coordinateSpan;
 
     [self.mapView setRegion:region animated:YES];
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    id <MKAnnotation> annotation = view.annotation;
+    CLLocationCoordinate2D coordinate = [annotation coordinate];
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
+    MKMapItem *mapitem = [[MKMapItem alloc] initWithPlacemark:placemark];
+    mapitem.name = annotation.title;
+    [mapitem openInMapsWithLaunchOptions:nil];
 }
 
 - (IBAction)onEventsButtonPressed:(id)sender
