@@ -19,19 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+
     //Navigationbar cutomization
     self.navigationController.hidesBarsOnSwipe = YES;
 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"Details";
 
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIFont fontWithName:@"JuraMedium" size:40],
-      NSFontAttributeName, nil]];
-
     NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
-                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:40]
+                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:35]
                                   };
 
     [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
@@ -44,8 +40,6 @@
        NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:21]
        }
      forState:UIControlStateNormal];
-
-
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -72,6 +66,10 @@
     }];
 
     return cell;
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 @end

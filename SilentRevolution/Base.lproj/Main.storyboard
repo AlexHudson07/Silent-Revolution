@@ -64,8 +64,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ED9-I3-rdU" secondAttribute="trailing" constant="-5" id="4un-gA-Ie4"/>
-                            <constraint firstItem="5qf-p7-E76" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-5" id="EIt-aa-Osm"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ED9-I3-rdU" secondAttribute="bottom" constant="8" id="IVW-15-UHl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AkM-Fj-kYf" secondAttribute="trailing" constant="-26" id="Mcn-d3-aHX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5qf-p7-E76" secondAttribute="trailing" constant="-5" id="RB9-yF-zrq"/>
@@ -75,12 +73,6 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="AkM-Fj-kYf" secondAttribute="bottom" id="uDM-T3-39U"/>
                             <constraint firstItem="ED9-I3-rdU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-5" id="yXr-Ao-5B0"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="4un-gA-Ie4"/>
-                                <exclude reference="EIt-aa-Osm"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ZnV-qf-DMz"/>
                     <connections>

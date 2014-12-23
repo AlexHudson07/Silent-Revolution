@@ -18,18 +18,12 @@
     [super viewDidLoad];
 
     self.navigationItem.title = @"Silent Revolution";
-
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIFont fontWithName:@"JuraMedium" size:40],
-      NSFontAttributeName, nil]];
-
+    
     NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
-                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:40]
+                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:35],
                                   };
 
     [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
-
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:123.f/255 green:174.f/255 blue:45.f/2555 alpha:1];
 
@@ -42,8 +36,8 @@
     self.detailsButton.layer.cornerRadius = 8;
 
     //Zooms in to Manhattan
-    CLLocationDegrees longitude = -73.9597;
-    CLLocationDegrees latitude =  40.7903;
+    CLLocationDegrees longitude = -80.2241;
+    CLLocationDegrees latitude =  25.7977;
 
     CLLocationCoordinate2D centerCoordinate;
 
@@ -51,8 +45,8 @@
     centerCoordinate.latitude = latitude;
 
     MKCoordinateSpan coordinateSpan;
-    coordinateSpan.latitudeDelta = 0.25;
-    coordinateSpan.longitudeDelta = 0.25;
+    coordinateSpan.latitudeDelta = 0.30;
+    coordinateSpan.longitudeDelta = 0.30;
 
     MKCoordinateRegion region;
     region.center = centerCoordinate;
@@ -63,6 +57,10 @@
     [self loadLocations];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+}
 
 -(void)loadLocations{
 
@@ -87,7 +85,16 @@
                     coordinate.longitude = point.longitude;
 
                     busAnnotation.coordinate = coordinate;
-                    busAnnotation.title = object[@"Event"];
+
+                    NSString *string = object[@"Event"];
+
+                    NSString *string1 = @" ";
+
+                    NSString *string2 = object[@"Time"];
+
+                    string = [[string stringByAppendingString:string1] stringByAppendingString:string2];
+
+                    busAnnotation.title = string;
 
                     [self.mapView addAnnotation:busAnnotation];
                 }
@@ -106,9 +113,6 @@
     pin.image = [UIImage imageNamed:@"pin2"];
 
      pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-
-    
-    //pin.animatesDrop = YES;
 
     return pin;
 }
@@ -136,8 +140,8 @@
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
 
     //Zooms in to Manhattan
-    CLLocationDegrees longitude = -73.9597;
-    CLLocationDegrees latitude =  40.7903;
+    CLLocationDegrees longitude = -80.2241;
+    CLLocationDegrees latitude =  25.7977;
 
     CLLocationCoordinate2D centerCoordinate;
 
@@ -145,8 +149,8 @@
     centerCoordinate.latitude = latitude;
 
     MKCoordinateSpan coordinateSpan;
-    coordinateSpan.latitudeDelta = .25;
-    coordinateSpan.longitudeDelta = .25;
+    coordinateSpan.latitudeDelta = .30;
+    coordinateSpan.longitudeDelta = .30;
 
     MKCoordinateRegion region;
     region.center = centerCoordinate;
@@ -157,23 +161,61 @@
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    id <MKAnnotation> annotation = view.annotation;
-    CLLocationCoordinate2D coordinate = [annotation coordinate];
-    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
-    MKMapItem *mapitem = [[MKMapItem alloc] initWithPlacemark:placemark];
-    mapitem.name = annotation.title;
-    [mapitem openInMapsWithLaunchOptions:nil];
+
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"You are about to get directions to the Revolution" message:nil preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction * ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"User pressed ok");
+
+        id <MKAnnotation> annotation = view.annotation;
+        CLLocationCoordinate2D coordinate = [annotation coordinate];
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
+        MKMapItem *mapitem = [[MKMapItem alloc] initWithPlacemark:placemark];
+        mapitem.name = annotation.title;
+        [mapitem openInMapsWithLaunchOptions:nil];
+
+        [ac dismissViewControllerAnimated:YES completion:nil];
+    }];
+
+
+    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [ac dismissViewControllerAnimated:YES completion:nil];
+    }];
+
+        [ac addAction:cancel];
+        [ac addAction:ok];
+
+    [self presentViewController:ac animated:YES completion:nil];
 }
 
 - (IBAction)onEventsButtonPressed:(id)sender
 {
+
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"You leaving to go to The Silent Revolution website " message:nil preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction * ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"User pressed ok");
+
     NSURL *url = [NSURL URLWithString:@"http://www.thesilentrevolutionnyc.com/#!events/c9b1"];
 
     if (![[UIApplication sharedApplication] openURL:url]) {
         NSLog(@"%@%@",@"Failed to open url:",[url description]);
     }
 
+        [ac dismissViewControllerAnimated:YES completion:nil];
+    }];
+
+
+    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [ac dismissViewControllerAnimated:YES completion:nil];
+    }];
+
+    [ac addAction:cancel];
+    [ac addAction:ok];
+
+    [self presentViewController:ac animated:YES completion:nil];
 }
+
 - (IBAction)onDetailsButtonPressed:(id)sender
 {
     [self performSegueWithIdentifier:@"mapToDetails" sender:self];
@@ -185,8 +227,5 @@
     
     vc.infoArray = self.locationsArray;
 }
-
-
-
 
 @end

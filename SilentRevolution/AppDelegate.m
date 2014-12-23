@@ -17,8 +17,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
 
+    // Parse Key and Secret
     [Parse setApplicationId:@"z9BDO6kif0x6w1mfCAqqGs7MELPeJKeq0WjXu32W"
                   clientKey:@"2Aq88D4GOqINks2rck383wAMC1h2MH8Sqq3RuKAy"];
 
@@ -30,6 +30,8 @@
                                                                              categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
+
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 
     return YES;
 }
@@ -63,8 +65,49 @@
     currentInstallation.channels = @[ @"global" ];
     [currentInstallation saveInBackground];
 }
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [PFPush handlePush:userInfo];
-}
+
+// For action notification 
+
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+//    [PFPush handlePush:userInfo];
+//
+//
+//    //
+//    //Modifiying notification behavior
+//    //
+//
+//    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
+//
+//    UIMutableUserNotificationAction *acceptAction = [[UIMutableUserNotificationAction alloc] init];
+//
+//    acceptAction.identifier = @"ACCEPT_IDENTIFIER";
+//    //App given seconds, not minutes to run in the background
+//    acceptAction.activationMode = UIUserNotificationActivationModeForeground;
+//
+//    //If set to yes message appears red on screen
+//    acceptAction.destructive = NO;
+//
+//    //if set to yes and the phone is locked the user will have to enter passcode when they tap on the action
+//    acceptAction.authenticationRequired = NO;
+//
+//    UIMutableUserNotificationCategory *inviteCatagory = [[UIMutableUserNotificationCategory alloc] init];
+//
+//    inviteCatagory.identifier = @"INVITE_CATAGORY";
+//
+//    [inviteCatagory setActions:@[acceptAction] forContext:UIUserNotificationActionContextMinimal];
+//
+//    NSSet *categories = [NSSet setWithObjects:inviteCatagory, nil];
+//
+//    UIUserNotificationSettings * settings = [UIUserNotificationSettings settingsForTypes:types categories: categories];
+//
+//    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+//}
+//
+//-(void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandle
+//{
+//    if ([identifier isEqualToString:@"ACCEPT_IDENTIFIER"]){
+//    //    han
+//    }
+//}
 
 @end
