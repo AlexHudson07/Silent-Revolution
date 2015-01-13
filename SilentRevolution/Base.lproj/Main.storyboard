@@ -8,6 +8,10 @@
         <mutableArray key="Jura-Medium.otf">
             <string>JuraMedium</string>
             <string>JuraMedium</string>
+            <string>JuraMedium</string>
+            <string>JuraMedium</string>
+            <string>JuraMedium</string>
+            <string>JuraMedium</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -61,6 +65,22 @@
                                     <action selector="onEventsButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BKx-eP-XUT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byl-1W-u98">
+                                <rect key="frame" x="260" y="488" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="FvW-bZ-1ed"/>
+                                    <constraint firstAttribute="width" constant="80" id="n1X-w1-7Af"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Vote">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onVoteButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4wD-pN-cJY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -70,7 +90,9 @@
                             <constraint firstItem="AkM-Fj-kYf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ayu-GO-8PF"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="5qf-p7-E76" secondAttribute="bottom" constant="8" id="bB4-yX-j38"/>
                             <constraint firstItem="AkM-Fj-kYf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="hr1-4d-N02"/>
+                            <constraint firstAttribute="centerX" secondItem="Byl-1W-u98" secondAttribute="centerX" id="ook-3p-GO0"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="AkM-Fj-kYf" secondAttribute="bottom" id="uDM-T3-39U"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Byl-1W-u98" secondAttribute="bottom" constant="8" id="yK7-Ah-4lb"/>
                             <constraint firstItem="ED9-I3-rdU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-5" id="yXr-Ao-5B0"/>
                         </constraints>
                     </view>
@@ -79,12 +101,95 @@
                         <outlet property="detailsButton" destination="5qf-p7-E76" id="cpD-pY-BFU"/>
                         <outlet property="eventButton" destination="ED9-I3-rdU" id="Vvz-Zb-2t4"/>
                         <outlet property="mapView" destination="AkM-Fj-kYf" id="CSz-s5-fIG"/>
+                        <outlet property="voteButton" destination="Byl-1W-u98" id="dxQ-Ql-xnQ"/>
                         <segue destination="zVY-lp-YO6" kind="show" identifier="mapToDetails" id="3tn-KW-o6s"/>
+                        <segue destination="CrE-v1-FpV" kind="show" identifier="mapToVote" id="g7i-Ko-33n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1185" y="-343"/>
+        </scene>
+        <!--Vote View Controller-->
+        <scene sceneID="zu4-BV-3zv">
+            <objects>
+                <viewController id="CrE-v1-FpV" customClass="VoteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Jf-3V-83K"/>
+                        <viewControllerLayoutGuide type="bottom" id="eVA-Fw-EeR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T0L-kl-WYe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUo-DL-uh8">
+                                <rect key="frame" x="200" y="141" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="In2-Bz-e0l"/>
+                                    <constraint firstAttribute="height" constant="30" id="no7-O0-BTT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="oneButtonOnePressed:" destination="CrE-v1-FpV" eventType="touchUpInside" id="Ef5-MF-59V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKR-rT-kkT">
+                                <rect key="frame" x="200" y="254" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Gh3-pE-uwF"/>
+                                    <constraint firstAttribute="height" constant="30" id="nub-Ef-04U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonTwoPressed:" destination="CrE-v1-FpV" eventType="touchUpInside" id="pcY-K0-DSh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSX-M8-pE6">
+                                <rect key="frame" x="200" y="362" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Bxz-0c-uYP"/>
+                                    <constraint firstAttribute="height" constant="30" id="yw8-DS-aNL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonThreePressed:" destination="CrE-v1-FpV" eventType="touchUpInside" id="LsP-Ld-AOr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="SKR-rT-kkT" secondAttribute="centerX" id="2Y7-8A-sdC"/>
+                            <constraint firstAttribute="centerX" secondItem="eSX-M8-pE6" secondAttribute="centerX" id="3aB-32-Gzd"/>
+                            <constraint firstAttribute="centerY" secondItem="SKR-rT-kkT" secondAttribute="centerY" constant="-1" id="B7U-9H-nIO"/>
+                            <constraint firstItem="fUo-DL-uh8" firstAttribute="top" secondItem="8Jf-3V-83K" secondAttribute="bottom" constant="141" id="lAg-6Z-aQZ"/>
+                            <constraint firstItem="eVA-Fw-EeR" firstAttribute="top" secondItem="eSX-M8-pE6" secondAttribute="bottom" constant="144" id="nsN-vI-zRb"/>
+                            <constraint firstAttribute="centerX" secondItem="fUo-DL-uh8" secondAttribute="centerX" id="nzq-LV-sMS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button1" destination="fUo-DL-uh8" id="xth-Jx-0A0"/>
+                        <outlet property="button2" destination="SKR-rT-kkT" id="c1r-Vp-f9g"/>
+                        <outlet property="button3" destination="eSX-M8-pE6" id="kNt-bv-tOz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xdl-dK-2O1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1944" y="82"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="EAN-hK-yz0">
@@ -183,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fje-eA-Vcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1850" y="-346"/>
+            <point key="canvasLocation" x="1944" y="-678"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="and-gb-smG">

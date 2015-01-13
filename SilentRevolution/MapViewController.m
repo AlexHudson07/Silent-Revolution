@@ -8,6 +8,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIButton *eventButton;
 @property (strong, nonatomic) IBOutlet UIButton *detailsButton;
+@property (strong, nonatomic) IBOutlet UIButton *voteButton;
 @property (strong, nonatomic) NSArray *locationsArray;
 
 @end
@@ -34,6 +35,7 @@
     //Design for Buttons
     self.eventButton.layer.cornerRadius = 8;
     self.detailsButton.layer.cornerRadius = 8;
+    self.voteButton.layer.cornerRadius = 8;
 
     //Zooms in to Manhattan
     CLLocationDegrees longitude = -80.2241;
@@ -62,6 +64,7 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
+#pragma mark - Parse Methods
 -(void)loadLocations{
 
     PFQuery * query = [PFQuery queryWithClassName: @"Locations"];
@@ -102,6 +105,7 @@
     }];
 }
 
+#pragma mark - MKMap Methods
 //This Delegate method allowes you to modify the pins and the views above them
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
@@ -205,7 +209,6 @@
         [ac dismissViewControllerAnimated:YES completion:nil];
     }];
 
-
     UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         [ac dismissViewControllerAnimated:YES completion:nil];
     }];
@@ -221,11 +224,18 @@
     [self performSegueWithIdentifier:@"mapToDetails" sender:self];
 }
 
+- (IBAction)onVoteButtonPressed:(id)sender {
+
+    [self performSegueWithIdentifier:@"mapToVote" sender:self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    DetailsViewController *vc = segue.destinationViewController;
-    
-    vc.infoArray = self.locationsArray;
+    if ([segue.identifier  isEqual: @"mapToDetails"]){
+
+        DetailsViewController *vc = segue.destinationViewController;
+        vc.infoArray = self.locationsArray;
+    }
 }
 
 @end
