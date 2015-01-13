@@ -22,6 +22,10 @@
     [Parse setApplicationId:@"z9BDO6kif0x6w1mfCAqqGs7MELPeJKeq0WjXu32W"
                   clientKey:@"2Aq88D4GOqINks2rck383wAMC1h2MH8Sqq3RuKAy"];
 
+    //Mikes key and secret
+    //[Parse setApplicationId:@"XaCX3SPVRiByPtchR9gkEY3HMQv5je6iXr1dG9Uz"
+    //                clientKey:@"2ypIYsF69owrKUTbrmMvgyfyOLAjmda8GRY4P0CH"];
+
     // Register for Push Notifications
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
