@@ -23,7 +23,6 @@
     [super viewDidLoad];
 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationItem.title = @"Event Name";
 
     NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
                                   NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:35]
@@ -55,7 +54,7 @@
 
     PFQuery * query = [PFQuery queryWithClassName: @"Vote"];
 
-    [query orderByAscending:@"Order"];
+    [query orderByDescending:@"Order"];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 
@@ -67,6 +66,10 @@
 
         PFObject *three = [objects objectAtIndex:2];
         [self.button3 setTitle:three[@"Name"] forState:UIControlStateNormal];
+
+        PFObject *four = [objects objectAtIndex:3];
+        self.navigationItem.title = four[@"Event"];
+
     }];
 }
 - (IBAction)oneButtonOnePressed:(id)sender {
