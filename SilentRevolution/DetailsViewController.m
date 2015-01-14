@@ -21,7 +21,6 @@
 
 
     //Navigationbar cutomization
-    self.navigationController.hidesBarsOnSwipe = YES;
 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"Details";
@@ -40,6 +39,11 @@
        NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:21]
        }
      forState:UIControlStateNormal];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    self.navigationController.hidesBarsOnSwipe = YES;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

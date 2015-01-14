@@ -41,20 +41,24 @@
     self.button1.layer.cornerRadius = 8;
     self.button2.layer.cornerRadius = 8;
     self.button3.layer.cornerRadius = 8;
+    [self disableButtons];
+
 
     [self loadNames];
+
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    self.navigationController.hidesBarsOnSwipe = NO;
 }
 
--(void)loadNames{
+- (void)loadNames{
 
     PFQuery * query = [PFQuery queryWithClassName: @"Vote"];
 
-    [query orderByDescending:@"Order"];
+    [query orderByAscending:@"Order"];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 
@@ -69,6 +73,10 @@
 
         PFObject *four = [objects objectAtIndex:3];
         self.navigationItem.title = four[@"Event"];
+
+        if ([four[@"canVote"] boolValue] == true) {
+            [self enableButtons];
+        }
 
     }];
 }
@@ -95,14 +103,21 @@
 
 }
 
-- (void) disableButtons {
+- (void)disableButtons {
 
     self.button1.enabled = NO;
     self.button2.enabled = NO;
     self.button3.enabled = NO;
 }
 
-- (void) updateCounter:(int) namePosition {
+- (void)enableButtons {
+
+    self.button1.enabled = YES;
+    self.button2.enabled = YES;
+    self.button3.enabled = YES;
+}
+
+- (void)updateCounter:(int) namePosition {
     __block int i = 0;
     __block NSMutableArray *voteCount = [NSMutableArray  array];
 
@@ -131,7 +146,7 @@
     }];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
     ThankYouViewController *VC = [segue destinationViewController];
     [VC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
