@@ -8,12 +8,12 @@
 
 #import "VoteViewController.h"
 #import <Parse/Parse.h>
+#import "ThankYouViewController.h"
 
 @interface VoteViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *button1;
 @property (strong, nonatomic) IBOutlet UIButton *button2;
 @property (strong, nonatomic) IBOutlet UIButton *button3;
-//@property (strong, nonatomic) NSMutableArray *voteCount;
 
 @end
 
@@ -46,6 +46,11 @@
     [self loadNames];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+}
+
 -(void)loadNames{
 
     PFQuery * query = [PFQuery queryWithClassName: @"Vote"];
@@ -68,18 +73,23 @@
 
     [self updateCounter:0];
     [self disableButtons];
+    [self performSegueWithIdentifier:@"voteToThankYou" sender:self];
 }
 
 - (IBAction)onButtonTwoPressed:(id)sender {
 
     [self updateCounter:1];
     [self disableButtons];
+    [self performSegueWithIdentifier:@"voteToThankYou" sender:self];
+
 }
 
 - (IBAction)onButtonThreePressed:(id)sender {
 
     [self updateCounter:2];
     [self disableButtons];
+    [self performSegueWithIdentifier:@"voteToThankYou" sender:self];
+
 }
 
 - (void) disableButtons {
@@ -116,6 +126,12 @@
         }
         voteCount = nil;
     }];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    ThankYouViewController *VC = [segue destinationViewController];
+    [VC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
 }
 
 @end
