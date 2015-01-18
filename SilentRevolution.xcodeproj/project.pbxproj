@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5D4F4EA61A4139E8003F2144 /* Jura-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5D4F4EA51A4139E8003F2144 /* Jura-Medium.otf */; };
-		5DE4D32A1A65BCD20047BEE7 /* VoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4D3291A65BCD20047BEE7 /* VoteViewController.m */; };
+		5D9EA6871A6C3BC000319FD3 /* VotePickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EA6861A6C3BC000319FD3 /* VotePickViewController.m */; };
+		5D9EA68A1A6C3E1B00319FD3 /* MusicVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EA6891A6C3E1B00319FD3 /* MusicVoteViewController.m */; };
+		5D9EA68D1A6C47EB00319FD3 /* MusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EA68C1A6C47EB00319FD3 /* MusicTableViewCell.m */; };
+		5DE4D32A1A65BCD20047BEE7 /* DJVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4D3291A65BCD20047BEE7 /* DJVoteViewController.m */; };
 		5DE4D32D1A65E46F0047BEE7 /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4D32C1A65E46F0047BEE7 /* ThankYouViewController.m */; };
 		5DE9CAC61A3A709500F18C0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9CAC51A3A709500F18C0A /* main.m */; };
 		5DE9CAC91A3A709500F18C0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9CAC81A3A709500F18C0A /* AppDelegate.m */; };
@@ -46,8 +49,14 @@
 
 /* Begin PBXFileReference section */
 		5D4F4EA51A4139E8003F2144 /* Jura-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Medium.otf"; sourceTree = "<group>"; };
-		5DE4D3281A65BCD20047BEE7 /* VoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteViewController.h; sourceTree = "<group>"; };
-		5DE4D3291A65BCD20047BEE7 /* VoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteViewController.m; sourceTree = "<group>"; };
+		5D9EA6851A6C3BBF00319FD3 /* VotePickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotePickViewController.h; sourceTree = "<group>"; };
+		5D9EA6861A6C3BC000319FD3 /* VotePickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VotePickViewController.m; sourceTree = "<group>"; };
+		5D9EA6881A6C3E1B00319FD3 /* MusicVoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicVoteViewController.h; sourceTree = "<group>"; };
+		5D9EA6891A6C3E1B00319FD3 /* MusicVoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicVoteViewController.m; sourceTree = "<group>"; };
+		5D9EA68B1A6C47EB00319FD3 /* MusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTableViewCell.h; sourceTree = "<group>"; };
+		5D9EA68C1A6C47EB00319FD3 /* MusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTableViewCell.m; sourceTree = "<group>"; };
+		5DE4D3281A65BCD20047BEE7 /* DJVoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJVoteViewController.h; sourceTree = "<group>"; };
+		5DE4D3291A65BCD20047BEE7 /* DJVoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJVoteViewController.m; sourceTree = "<group>"; };
 		5DE4D32B1A65E46F0047BEE7 /* ThankYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThankYouViewController.h; sourceTree = "<group>"; };
 		5DE4D32C1A65E46F0047BEE7 /* ThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThankYouViewController.m; sourceTree = "<group>"; };
 		5DE9CAC01A3A709500F18C0A /* SilentRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilentRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,8 +161,14 @@
 				5DE9CB041A3A861700F18C0A /* DetailsViewController.h */,
 				5DE9CB051A3A861700F18C0A /* DetailsViewController.m */,
 				5DE9CB071A3A867E00F18C0A /* DetailsTableViewCell.h */,
-				5DE4D3281A65BCD20047BEE7 /* VoteViewController.h */,
-				5DE4D3291A65BCD20047BEE7 /* VoteViewController.m */,
+				5D9EA6851A6C3BBF00319FD3 /* VotePickViewController.h */,
+				5D9EA6861A6C3BC000319FD3 /* VotePickViewController.m */,
+				5DE4D3281A65BCD20047BEE7 /* DJVoteViewController.h */,
+				5DE4D3291A65BCD20047BEE7 /* DJVoteViewController.m */,
+				5D9EA6881A6C3E1B00319FD3 /* MusicVoteViewController.h */,
+				5D9EA6891A6C3E1B00319FD3 /* MusicVoteViewController.m */,
+				5D9EA68B1A6C47EB00319FD3 /* MusicTableViewCell.h */,
+				5D9EA68C1A6C47EB00319FD3 /* MusicTableViewCell.m */,
 				5DE4D32B1A65E46F0047BEE7 /* ThankYouViewController.h */,
 				5DE4D32C1A65E46F0047BEE7 /* ThankYouViewController.m */,
 				5DE9CB081A3A867E00F18C0A /* DetailsTableViewCell.m */,
@@ -313,12 +328,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DE4D32D1A65E46F0047BEE7 /* ThankYouViewController.m in Sources */,
-				5DE4D32A1A65BCD20047BEE7 /* VoteViewController.m in Sources */,
+				5D9EA68D1A6C47EB00319FD3 /* MusicTableViewCell.m in Sources */,
+				5DE4D32A1A65BCD20047BEE7 /* DJVoteViewController.m in Sources */,
 				5DE9CACC1A3A709500F18C0A /* MapViewController.m in Sources */,
 				5DE9CAC91A3A709500F18C0A /* AppDelegate.m in Sources */,
 				5DE9CB091A3A867E00F18C0A /* DetailsTableViewCell.m in Sources */,
 				5DE9CAC61A3A709500F18C0A /* main.m in Sources */,
 				5DE9CB061A3A861700F18C0A /* DetailsViewController.m in Sources */,
+				5D9EA6871A6C3BC000319FD3 /* VotePickViewController.m in Sources */,
+				5D9EA68A1A6C3E1B00319FD3 /* MusicVoteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +465,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SilentRevolution/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -464,6 +483,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SilentRevolution/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -29,4 +29,30 @@
 
 }
 
+- (IBAction)onShareButtonPressed:(id)sender {
+
+    NSString *string = @"I just voted for the Silent Revolution";
+
+    NSString *url = @"www.feelingutsy.com";
+
+    UIImage *myImage = [UIImage imageNamed:@"share"];
+
+
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[string, url, myImage] applicationActivities:nil];
+
+    activityViewController.excludedActivityTypes = @[UIActivityTypeAddToReadingList,
+                                                     UIActivityTypeAirDrop,
+                                                     UIActivityTypeCopyToPasteboard,
+                                                     UIActivityTypePostToTencentWeibo,
+                                                     UIActivityTypePostToFlickr,
+                                                     UIActivityTypeSaveToCameraRoll,
+                                                     UIActivityTypeAssignToContact,
+                                                     UIActivityTypePrint,
+                                                     UIActivityTypeMail,
+                                                     UIActivityTypeMessage];
+
+    [self presentViewController:activityViewController animated:YES completion:nil];
+}
+
+
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VoteViewController : UIViewController
+@interface DJVoteViewController : UIViewController
 
 @end

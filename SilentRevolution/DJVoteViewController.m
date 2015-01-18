@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 Alex Hudson. All rights reserved.
 //
 
-#import "VoteViewController.h"
+#import "DJVoteViewController.h"
 #import <Parse/Parse.h>
 #import "ThankYouViewController.h"
 
-@interface VoteViewController ()
+@interface DJVoteViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *button1;
 @property (strong, nonatomic) IBOutlet UIButton *button2;
 @property (strong, nonatomic) IBOutlet UIButton *button3;
 
 @end
 
-@implementation VoteViewController
+@implementation DJVoteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,23 +84,21 @@
 
     [self updateCounter:0];
     [self disableButtons];
-    [self performSegueWithIdentifier:@"voteToThankYou" sender:self];
+    [self performSegueWithIdentifier:@"DJVoteToThankYou" sender:self];
 }
 
 - (IBAction)onButtonTwoPressed:(id)sender {
 
     [self updateCounter:1];
     [self disableButtons];
-    [self performSegueWithIdentifier:@"voteToThankYou" sender:self];
-
+    [self performSegueWithIdentifier:@"DJVoteToThankYou" sender:self];
 }
 
 - (IBAction)onButtonThreePressed:(id)sender {
 
     [self updateCounter:2];
     [self disableButtons];
-    [self performSegueWithIdentifier:@"voteToThankYou" sender:self];
-
+    [self performSegueWithIdentifier:@"DJVoteToThankYou" sender:self];
 }
 
 - (void)disableButtons {
