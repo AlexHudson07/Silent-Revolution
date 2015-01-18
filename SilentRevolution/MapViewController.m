@@ -219,6 +219,7 @@
     [self presentViewController:ac animated:YES completion:nil];
 }
 
+#pragma mark - buttons
 - (IBAction)onDetailsButtonPressed:(id)sender
 {
     [self performSegueWithIdentifier:@"mapToDetails" sender:self];
