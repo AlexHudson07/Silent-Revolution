@@ -20,4 +20,14 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)onVoteButtonPressed:(id)sender {
+
+    int num = (int)self.object[@"Count"];
+
+    NSNumber *number = [NSNumber numberWithInt:((num /16) + 1.0)];
+    self.object[@"Count"] = number;
+
+    [self.object saveInBackground];
+}
+
 @end

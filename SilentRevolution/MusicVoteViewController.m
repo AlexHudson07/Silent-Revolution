@@ -82,14 +82,10 @@
     PFObject * tempObject = [self.musicArray objectAtIndex:indexPath.row];
 
     MusicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-    cell.textLabel.text = tempObject[@"Song"];
+    cell.songLabel.text = tempObject[@"Song"];
+    cell.object = tempObject;
 
     return cell;
-}
-
-
-- (IBAction)onButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"musicVotetToThankYou" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
