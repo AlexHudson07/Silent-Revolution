@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
     //Navigationbar cutomization
 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -30,7 +29,6 @@
                                   };
 
     [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
-
 
     //Back button
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
