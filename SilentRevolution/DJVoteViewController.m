@@ -23,6 +23,8 @@
     [super viewDidLoad];
 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Vote For The Best";
+
 
     NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
                                   NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:35]

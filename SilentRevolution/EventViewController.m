@@ -13,6 +13,7 @@
 
 
 @interface EventViewController ()
+@property (strong, nonatomic) IBOutlet UIButton *facebookLoginButton;
 
 @end
 
@@ -21,6 +22,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+
+        [self.facebookLoginButton setTitle:@"signed in" forState:UIControlStateNormal];
+
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.hidesBarsOnSwipe = NO;
 }
 
 - (void)didReceiveMemoryWarning {

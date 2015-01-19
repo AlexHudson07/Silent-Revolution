@@ -9,6 +9,8 @@
 #import "ThankYouViewController.h"
 
 @interface ThankYouViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *thankYouLabel;
+@property (strong, nonatomic) IBOutlet UIButton *shareButton;
 
 @end
 
@@ -18,6 +20,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor clearColor];
+
+    self.shareButton.layer.cornerRadius = 8;
+
+    self.thankYouLabel.clipsToBounds = YES;
+    self.thankYouLabel.layer.cornerRadius = 8;
 
 }
 -(void)viewWillAppear:(BOOL)animated

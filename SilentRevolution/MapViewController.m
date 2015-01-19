@@ -2,6 +2,7 @@
 #import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
 #import "DetailsViewController.h"
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 
 @interface MapViewController () <MKMapViewDelegate>
@@ -57,6 +58,12 @@
     [self.mapView setRegion:region animated:NO];
 
     [self loadLocations];
+
+
+    if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+
+        NSLog(@"User is logged in");
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -126,18 +133,15 @@
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     NSLog(@"Pin was tapped: %@", view.annotation.title);
-
     CLLocationCoordinate2D centerCoordinate = view.annotation.coordinate;
 
-    MKCoordinateSpan coordinateSpan;
-    coordinateSpan.latitudeDelta = 0.01;
-    coordinateSpan.longitudeDelta = 0.01;
+    MKMapCamera *newCamera = [[mapView camera] copy];
+    [newCamera setPitch:45.0];
+    //[newCamera setHeading:90.0];
+    [newCamera setAltitude:550.0];
 
-    MKCoordinateRegion region;
-    region.center = centerCoordinate;
-    region.span = coordinateSpan;
-
-    [self.mapView setRegion:region animated:YES];
+    newCamera.centerCoordinate = centerCoordinate;
+    [mapView setCamera:newCamera animated:YES];
 }
 
 //map zooms out when map user untaps pin

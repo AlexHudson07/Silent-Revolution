@@ -9,6 +9,8 @@
 #import "VotePickViewController.h"
 
 @interface VotePickViewController ()
+@property (strong, nonatomic) IBOutlet UIButton *voteMusicButton;
+@property (strong, nonatomic) IBOutlet UIButton *voteDJButton;
 
 @end
 
@@ -16,8 +18,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+     self.voteMusicButton.layer.cornerRadius = 8;
+     self.voteDJButton.layer.cornerRadius = 8;
+
+    //Navigationbar cutomization
+
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Vote";
+
+    NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:35]
+                                  };
+
+    [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
+
+    //Back button
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:21]
+       }
+     forState:UIControlStateNormal];
 }
+
 - (IBAction)musicButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"voteMusicSegue" sender:self];
 }
