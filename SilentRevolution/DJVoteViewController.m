@@ -41,7 +41,6 @@
      forState:UIControlStateNormal];
 
     self.DJArray = [NSArray array];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -50,12 +49,13 @@
     self.navigationController.hidesBarsOnSwipe = YES;
 
     [self checkingIfCanVote];
-
 }
 
 - (void)checkingIfCanVote {
 
     __block PFUser *user = nil;
+
+    __block NSDate *secondDate = [NSDate date];
 
     PFQuery * query = [PFUser query];
 
@@ -65,16 +65,33 @@
 
         user = [objects objectAtIndex:0];
 
-        if ([user[@"canVoteDJ"]boolValue] == true) {
-            NSLog(@"user can vote for DJ");
+        NSDate *firstDate = user[@"DJVoteTime"];
+
+        if ([secondDate timeIntervalSinceDate:firstDate] > 180) {
+
             [self loadNames];
         }
         else{
-            NSLog(@"user can NOT vote for DJ");
-        }
 
+            float voteTime = 180 - [secondDate timeIntervalSinceDate:firstDate];
+
+            NSString *string = [NSString stringWithFormat:@"You can vote again in %.0f seconds", voteTime];
+
+            UIAlertController * ac = [UIAlertController alertControllerWithTitle:@"NOT YET" message:string preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction * ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+                [ac dismissViewControllerAnimated:YES completion:nil];  } ];
+
+            [ac addAction:ok];
+            
+            [self presentViewController:ac animated:YES completion:^{
+            }];
+            
+        }
     }];
 }
+
 
 - (void)loadNames{
 

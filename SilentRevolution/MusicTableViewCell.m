@@ -32,7 +32,10 @@
     //this disables the user from voting once they vote for a song
     PFUser *user = [PFUser currentUser];
     user[@"canVoteMusic"] =  [NSNumber numberWithBool:NO];
+    user[@"musicVoteTime"] = [NSDate date];
     [user save];
+
+
 }
 
 @end

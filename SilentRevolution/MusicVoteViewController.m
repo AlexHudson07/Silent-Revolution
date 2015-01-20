@@ -56,6 +56,9 @@
 
     __block PFUser *user = nil;
 
+   __block NSDate *secondDate = [NSDate date];
+
+
     PFQuery * query = [PFUser query];
 
     [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
@@ -64,12 +67,29 @@
 
         user = [objects objectAtIndex:0];
 
-        if ([user[@"canVoteMusic"]boolValue] == true) {
-            NSLog(@"user can vote for Song");
+        NSDate *firstDate = user[@"musicVoteTime"];
+
+        if ([secondDate timeIntervalSinceDate:firstDate] > 180) {
+
             [self loadNames];
         }
         else{
-            NSLog(@"user can NOT vote for Song");
+
+            float voteTime = 180 - [secondDate timeIntervalSinceDate:firstDate];
+
+            NSString *string = [NSString stringWithFormat:@"You can vote again in %.0f seconds", voteTime];
+
+            UIAlertController * ac = [UIAlertController alertControllerWithTitle:@"NOT YET" message:string preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction * ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+                [ac dismissViewControllerAnimated:YES completion:nil];  } ];
+
+            [ac addAction:ok];
+            
+            [self presentViewController:ac animated:YES completion:^{
+            }];
+
         }
     }];
 }
@@ -82,10 +102,7 @@
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 
-
         self.musicArray = objects;
-
-        NSLog(@"");
 
         [self.tableView reloadData];
     }];
