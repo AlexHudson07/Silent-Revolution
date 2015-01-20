@@ -67,15 +67,15 @@
 
         NSDate *firstDate = user[@"DJVoteTime"];
 
-        if ([secondDate timeIntervalSinceDate:firstDate] > 180) {
+        if ([secondDate timeIntervalSinceDate:firstDate] > 1800.0) {
 
             [self loadNames];
         }
         else{
 
-            float voteTime = 180 - [secondDate timeIntervalSinceDate:firstDate];
+            float voteTime = (1800.0 - [secondDate timeIntervalSinceDate:firstDate]) / 60;
 
-            NSString *string = [NSString stringWithFormat:@"You can vote again in %.0f seconds", voteTime];
+            NSString *string = [NSString stringWithFormat:@"You can vote again in %.0f minutes", voteTime];
 
             UIAlertController * ac = [UIAlertController alertControllerWithTitle:@"NOT YET" message:string preferredStyle:UIAlertControllerStyleAlert];
 

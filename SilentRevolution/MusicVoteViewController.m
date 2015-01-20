@@ -33,7 +33,6 @@
 
     [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
 
-
     //Back button
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
      setTitleTextAttributes:
@@ -58,7 +57,6 @@
 
    __block NSDate *secondDate = [NSDate date];
 
-
     PFQuery * query = [PFUser query];
 
     [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
@@ -69,13 +67,13 @@
 
         NSDate *firstDate = user[@"musicVoteTime"];
 
-        if ([secondDate timeIntervalSinceDate:firstDate] > 180) {
+        if ([secondDate timeIntervalSinceDate:firstDate] > 120) {
 
             [self loadNames];
         }
         else{
 
-            float voteTime = 180 - [secondDate timeIntervalSinceDate:firstDate];
+            float voteTime = 120 - [secondDate timeIntervalSinceDate:firstDate];
 
             NSString *string = [NSString stringWithFormat:@"You can vote again in %.0f seconds", voteTime];
 
@@ -89,7 +87,6 @@
             
             [self presentViewController:ac animated:YES completion:^{
             }];
-
         }
     }];
 }
@@ -107,7 +104,6 @@
         [self.tableView reloadData];
     }];
 }
-
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

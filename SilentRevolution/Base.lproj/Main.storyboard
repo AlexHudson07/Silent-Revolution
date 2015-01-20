@@ -14,6 +14,10 @@
             <string>JuraMedium</string>
             <string>JuraMedium</string>
             <string>JuraMedium</string>
+            <string>JuraMedium</string>
+            <string>JuraMedium</string>
+            <string>JuraMedium</string>
+            <string>JuraMedium</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -188,25 +192,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JmW-aD-XOn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JmW-aD-XOn">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" rowHeight="129" id="MvT-dn-lWb" customClass="MusicTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" rowHeight="130" id="MvT-dn-lWb" customClass="MusicTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MvT-dn-lWb" id="0K6-3T-CGM">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYH-A9-iar">
-                                                    <rect key="frame" x="132" y="53" width="87" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fU-1M-iXF">
-                                                    <rect key="frame" x="138" y="75" width="46" height="30"/>
-                                                    <state key="normal" title="Button">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fU-1M-iXF">
+                                                    <rect key="frame" x="233" y="48" width="80" height="30"/>
+                                                    <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="luW-kq-ncn"/>
+                                                        <constraint firstAttribute="width" constant="80" id="zsS-50-SFs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
+                                                    <state key="normal" title="Vote">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -214,10 +219,27 @@
                                                         <segue destination="Af0-nL-frh" kind="presentation" id="lau-9U-Lgs"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYH-A9-iar">
+                                                    <rect key="frame" x="25" y="47" width="140" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="YWA-OP-vlJ"/>
+                                                        <constraint firstAttribute="width" constant="140" id="wyb-rT-Jqt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QYH-A9-iar" firstAttribute="leading" secondItem="0K6-3T-CGM" secondAttribute="leadingMargin" constant="17" id="8PW-bJ-xLj"/>
+                                                <constraint firstAttribute="centerY" secondItem="2fU-1M-iXF" secondAttribute="centerY" constant="1" id="Owb-mY-Shp"/>
+                                                <constraint firstItem="2fU-1M-iXF" firstAttribute="leading" secondItem="QYH-A9-iar" secondAttribute="trailing" constant="68" id="Qay-Mu-qGu"/>
+                                                <constraint firstAttribute="centerY" secondItem="QYH-A9-iar" secondAttribute="centerY" id="Y08-VJ-ENb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="songLabel" destination="QYH-A9-iar" id="hmm-yX-m8e"/>
+                                            <outlet property="voteButton" destination="2fU-1M-iXF" id="n7o-EB-YPe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -241,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RnQ-KK-6mz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2765" y="-104"/>
+            <point key="canvasLocation" x="2765" y="-106"/>
         </scene>
         <!--DJVote View Controller-->
         <scene sceneID="zu4-BV-3zv">
@@ -255,25 +277,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r6E-HX-aG6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r6E-HX-aG6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" rowHeight="89" id="5Nh-Bg-wRW" customClass="DJTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" rowHeight="130" id="5Nh-Bg-wRW" customClass="DJTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Nh-Bg-wRW" id="DY8-MD-aWG">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38U-98-1zy">
-                                                    <rect key="frame" x="85" y="24" width="145" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJ Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38U-98-1zy">
+                                                    <rect key="frame" x="25" y="47" width="140" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="140" id="s42-1y-CXO"/>
+                                                        <constraint firstAttribute="height" constant="35" id="xo5-Yp-f6R"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPh-1s-rfk">
-                                                    <rect key="frame" x="90" y="52" width="46" height="30"/>
-                                                    <state key="normal" title="Button">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPh-1s-rfk">
+                                                    <rect key="frame" x="233" y="49" width="80" height="30"/>
+                                                    <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Qmp-Xg-fRd"/>
+                                                        <constraint firstAttribute="width" constant="80" id="Wul-mr-ev1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
+                                                    <state key="normal" title="Vote">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -282,9 +315,16 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="38U-98-1zy" secondAttribute="centerY" id="U8A-cL-QK9"/>
+                                                <constraint firstItem="BPh-1s-rfk" firstAttribute="leading" secondItem="38U-98-1zy" secondAttribute="trailing" constant="68" id="g7z-2S-7QG"/>
+                                                <constraint firstItem="38U-98-1zy" firstAttribute="leading" secondItem="DY8-MD-aWG" secondAttribute="leadingMargin" constant="17" id="hbF-fl-DBo"/>
+                                                <constraint firstAttribute="centerY" secondItem="BPh-1s-rfk" secondAttribute="centerY" id="w1D-gO-Htx"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="songLabel" destination="38U-98-1zy" id="9Jw-cm-haZ"/>
+                                            <outlet property="voteButton" destination="BPh-1s-rfk" id="G9K-cO-Fvl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -465,26 +505,11 @@
                                                         <constraint firstAttribute="width" constant="286" id="wGR-6n-Ywo"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msS-lC-oP9">
-                                                    <rect key="frame" x="175" y="18" width="250" height="250"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="250" id="ZU5-4i-6m9"/>
-                                                        <constraint firstAttribute="height" constant="250" id="i3C-NF-JFP"/>
-                                                    </constraints>
-                                                    <state key="normal">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="bnU-KL-BhR" kind="show" id="yPk-OP-xgu"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerX" secondItem="OYf-xe-paI" secondAttribute="centerX" id="OLw-qh-22x"/>
                                                 <constraint firstItem="buq-Rg-LJj" firstAttribute="top" secondItem="pAL-c4-lYe" secondAttribute="topMargin" constant="9" id="QV7-wS-6AC"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="oE6-NY-Vy6" secondAttribute="bottom" id="Qmo-eC-AAT"/>
-                                                <constraint firstItem="msS-lC-oP9" firstAttribute="top" secondItem="pAL-c4-lYe" secondAttribute="topMargin" constant="10" id="XPC-Jr-6QZ"/>
-                                                <constraint firstAttribute="centerX" secondItem="msS-lC-oP9" secondAttribute="centerX" id="aQb-38-xof"/>
                                                 <constraint firstAttribute="centerX" secondItem="buq-Rg-LJj" secondAttribute="centerX" id="i3D-GY-g60"/>
                                                 <constraint firstItem="OYf-xe-paI" firstAttribute="top" secondItem="pAL-c4-lYe" secondAttribute="topMargin" constant="261" id="lIa-Yp-4qc"/>
                                                 <constraint firstAttribute="centerX" secondItem="oE6-NY-Vy6" secondAttribute="centerX" id="ozL-py-FHG"/>
@@ -517,38 +542,6 @@
             </objects>
             <point key="canvasLocation" x="1944" y="-680"/>
         </scene>
-        <!--Event View Controller-->
-        <scene sceneID="GyX-lb-ET3">
-            <objects>
-                <viewController id="bnU-KL-BhR" customClass="EventViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8fQ-6c-hVv"/>
-                        <viewControllerLayoutGuide type="bottom" id="zQt-I7-2R2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dJb-iB-Ea2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScL-BG-IRp">
-                                <rect key="frame" x="257" y="253" width="87" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginButtonTouchHandler:" destination="bnU-KL-BhR" eventType="touchUpInside" id="bA1-9e-SQP"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="facebookLoginButton" destination="ScL-BG-IRp" id="xNz-Bv-ICa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K7o-jv-5Js" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2765" y="-678"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="and-gb-smG">
             <objects>
@@ -573,6 +566,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lau-9U-Lgs"/>
+        <segue reference="UL0-j6-3sc"/>
     </inferredMetricsTieBreakers>
 </document>

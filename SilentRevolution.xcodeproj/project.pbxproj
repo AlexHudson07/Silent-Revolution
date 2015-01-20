@@ -13,7 +13,6 @@
 		5D9EA68D1A6C47EB00319FD3 /* MusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EA68C1A6C47EB00319FD3 /* MusicTableViewCell.m */; };
 		5D9EA6901A6C533900319FD3 /* DJTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EA68F1A6C533900319FD3 /* DJTableViewCell.m */; };
 		5D9EA6921A6C8EF400319FD3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9EA6911A6C8EF400319FD3 /* FacebookSDK.framework */; };
-		5D9EA6971A6C948000319FD3 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EA6961A6C948000319FD3 /* EventViewController.m */; };
 		5D9F44EB1A6CA24000A88B04 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F44EA1A6CA24000A88B04 /* ParseFacebookUtils.framework */; };
 		5DE4D32A1A65BCD20047BEE7 /* DJVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4D3291A65BCD20047BEE7 /* DJVoteViewController.m */; };
 		5DE4D32D1A65E46F0047BEE7 /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE4D32C1A65E46F0047BEE7 /* ThankYouViewController.m */; };
@@ -62,8 +61,6 @@
 		5D9EA68E1A6C533900319FD3 /* DJTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJTableViewCell.h; sourceTree = "<group>"; };
 		5D9EA68F1A6C533900319FD3 /* DJTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJTableViewCell.m; sourceTree = "<group>"; };
 		5D9EA6911A6C8EF400319FD3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		5D9EA6951A6C948000319FD3 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
-		5D9EA6961A6C948000319FD3 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		5D9F44EA1A6CA24000A88B04 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		5DE4D3281A65BCD20047BEE7 /* DJVoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJVoteViewController.h; sourceTree = "<group>"; };
 		5DE4D3291A65BCD20047BEE7 /* DJVoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJVoteViewController.m; sourceTree = "<group>"; };
@@ -173,8 +170,6 @@
 				5DE9CB041A3A861700F18C0A /* DetailsViewController.h */,
 				5DE9CB051A3A861700F18C0A /* DetailsViewController.m */,
 				5DE9CB071A3A867E00F18C0A /* DetailsTableViewCell.h */,
-				5D9EA6951A6C948000319FD3 /* EventViewController.h */,
-				5D9EA6961A6C948000319FD3 /* EventViewController.m */,
 				5D9EA6851A6C3BBF00319FD3 /* VotePickViewController.h */,
 				5D9EA6861A6C3BC000319FD3 /* VotePickViewController.m */,
 				5DE4D3281A65BCD20047BEE7 /* DJVoteViewController.h */,
@@ -354,7 +349,6 @@
 				5DE9CAC61A3A709500F18C0A /* main.m in Sources */,
 				5DE9CB061A3A861700F18C0A /* DetailsViewController.m in Sources */,
 				5D9EA6901A6C533900319FD3 /* DJTableViewCell.m in Sources */,
-				5D9EA6971A6C948000319FD3 /* EventViewController.m in Sources */,
 				5D9EA6871A6C3BC000319FD3 /* VotePickViewController.m in Sources */,
 				5D9EA68A1A6C3E1B00319FD3 /* MusicVoteViewController.m in Sources */,
 			);

@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+
+    self.voteButton.layer.cornerRadius = 8;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

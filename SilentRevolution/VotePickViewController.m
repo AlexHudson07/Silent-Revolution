@@ -42,6 +42,12 @@
      forState:UIControlStateNormal];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+
+    self.navigationController.hidesBarsOnSwipe = NO;
+}
+
+
 - (IBAction)musicButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"voteMusicSegue" sender:self];
 }
