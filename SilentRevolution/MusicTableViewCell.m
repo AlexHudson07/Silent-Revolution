@@ -28,6 +28,11 @@
     self.object[@"Count"] = number;
 
     [self.object saveInBackground];
+
+    //this disables the user from voting once they vote for a song
+    PFUser *user = [PFUser currentUser];
+    user[@"canVoteMusic"] =  [NSNumber numberWithBool:NO];
+    [user save];
 }
 
 @end

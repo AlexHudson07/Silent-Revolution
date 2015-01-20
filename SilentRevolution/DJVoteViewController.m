@@ -42,14 +42,38 @@
 
     self.DJArray = [NSArray array];
 
-    [self loadNames];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
    // [[UIApplication sharedApplication] setStatusBarHidden:NO];
     self.navigationController.hidesBarsOnSwipe = YES;
+
+    [self checkingIfCanVote];
+
+}
+
+- (void)checkingIfCanVote {
+
+    __block PFUser *user = nil;
+
+    PFQuery * query = [PFUser query];
+
+    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+
+        user = [objects objectAtIndex:0];
+
+        if ([user[@"canVoteDJ"]boolValue] == true) {
+            NSLog(@"user can vote for DJ");
+            [self loadNames];
+        }
+        else{
+            NSLog(@"user can NOT vote for DJ");
+        }
+
+    }];
 }
 
 - (void)loadNames{

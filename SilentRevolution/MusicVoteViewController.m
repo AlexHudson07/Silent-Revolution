@@ -44,14 +44,34 @@
 
     self.musicArray = [NSArray array];
 
-    [self loadNames];
-
-    // Do any additional setup after loading the view.
+    [self checkingIfCanVote];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
 
     self.navigationController.hidesBarsOnSwipe = YES;
+}
+
+- (void)checkingIfCanVote {
+
+    __block PFUser *user = nil;
+
+    PFQuery * query = [PFUser query];
+
+    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+
+        user = [objects objectAtIndex:0];
+
+        if ([user[@"canVoteMusic"]boolValue] == true) {
+            NSLog(@"user can vote for Song");
+            [self loadNames];
+        }
+        else{
+            NSLog(@"user can NOT vote for Song");
+        }
+    }];
 }
 
 - (void)loadNames{

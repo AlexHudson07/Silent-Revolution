@@ -22,12 +22,19 @@
 
 - (IBAction)onVoteButtonPressed:(id)sender {
 
+    //this incremenets the vote on parse by 1
+
     int num = (int)self.object[@"Count"];
 
     NSNumber *number = [NSNumber numberWithInt:((num /16) + 1.0)];
     self.object[@"Count"] = number;
 
     [self.object saveInBackground];
+
+    //this disables the user from voting once they vote for a DJ
+    PFUser *user = [PFUser currentUser];
+     user[@"canVoteDJ"] =  [NSNumber numberWithBool:NO];
+    [user save];
 }
 
 @end
