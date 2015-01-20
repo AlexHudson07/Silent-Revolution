@@ -92,7 +92,6 @@
     }];
 }
 
-
 - (void)loadNames{
 
     PFQuery * query = [PFQuery queryWithClassName: @"Vote"];

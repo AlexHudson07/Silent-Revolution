@@ -33,7 +33,6 @@
 
     //this disables the user from voting once they vote for a DJ
     PFUser *user = [PFUser currentUser];
-     user[@"canVoteDJ"] =  [NSNumber numberWithBool:NO];
      user[@"DJVoteTime"] = [NSDate date];
 
     [user save];
