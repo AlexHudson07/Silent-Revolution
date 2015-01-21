@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailsViewController.h"
+
 
 @interface DetailsTableViewCell : UITableViewCell
 
@@ -15,5 +17,9 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *detailTimeLabel;
 @property (strong, nonatomic) IBOutlet UITextView *detailDescriptionTextView;
+
+@property (strong, nonatomic) IBOutlet UIButton *registerButton;
+
+@property (strong, nonatomic) DetailsViewController *viewController;
 
 @end

@@ -57,6 +57,7 @@
     cell.detailEventLabel.text = tempObject[@"Event"];
     cell.detailTimeLabel.text = tempObject[@"Time"];
     cell.detailDescriptionTextView.text = tempObject[@"Description"];
+    cell.viewController = self;
 
     [tempObject[@"Photo"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
 

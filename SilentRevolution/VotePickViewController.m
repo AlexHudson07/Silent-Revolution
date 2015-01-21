@@ -47,7 +47,6 @@
     self.navigationController.hidesBarsOnSwipe = NO;
 }
 
-
 - (IBAction)musicButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"voteMusicSegue" sender:self];
 }
