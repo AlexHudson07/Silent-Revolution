@@ -204,10 +204,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fU-1M-iXF">
-                                                    <rect key="frame" x="233" y="48" width="80" height="30"/>
+                                                    <rect key="frame" x="233" y="43" width="80" height="40"/>
                                                     <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="luW-kq-ncn"/>
+                                                        <constraint firstAttribute="height" constant="40" id="luW-kq-ncn"/>
                                                         <constraint firstAttribute="width" constant="80" id="zsS-50-SFs"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
@@ -299,10 +299,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPh-1s-rfk">
-                                                    <rect key="frame" x="233" y="49" width="80" height="30"/>
+                                                    <rect key="frame" x="233" y="45" width="80" height="40"/>
                                                     <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Qmp-Xg-fRd"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Qmp-Xg-fRd"/>
                                                         <constraint firstAttribute="width" constant="80" id="Wul-mr-ev1"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
@@ -370,21 +370,21 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpo-wq-NGI">
-                                            <rect key="frame" x="213" y="281" width="174" height="37"/>
+                                            <rect key="frame" x="200" y="280" width="200" height="40"/>
                                             <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="174" id="0tf-a8-CLC"/>
-                                                <constraint firstAttribute="height" constant="37" id="zqj-a3-ryU"/>
+                                                <constraint firstAttribute="width" constant="200" id="0tf-a8-CLC"/>
+                                                <constraint firstAttribute="height" constant="40" id="zqj-a3-ryU"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="33"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1K-IS-6eV">
-                                            <rect key="frame" x="8" y="16" width="52" height="30"/>
+                                            <rect key="frame" x="8" y="16" width="72" height="40"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="52" id="LpQ-OV-X68"/>
-                                                <constraint firstAttribute="height" constant="30" id="ZYQ-r0-JcV"/>
+                                                <constraint firstAttribute="width" constant="72" id="LpQ-OV-X68"/>
+                                                <constraint firstAttribute="height" constant="40" id="ZYQ-r0-JcV"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
                                             <state key="normal" title="Back">
@@ -397,11 +397,11 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omI-Ff-QKy">
-                                            <rect key="frame" x="256" y="343" width="89" height="30"/>
+                                            <rect key="frame" x="256" y="343" width="89" height="40"/>
                                             <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="89" id="Yet-Qy-M3o"/>
-                                                <constraint firstAttribute="height" constant="30" id="nqI-Ak-R27"/>
+                                                <constraint firstAttribute="height" constant="40" id="nqI-Ak-R27"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
                                             <state key="normal" title="Share">
@@ -415,7 +415,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="centerX" secondItem="Zpo-wq-NGI" secondAttribute="centerX" id="K4d-Vf-FOT"/>
-                                        <constraint firstItem="omI-Ff-QKy" firstAttribute="top" secondItem="Zpo-wq-NGI" secondAttribute="bottom" constant="25" id="OCT-dH-ldU"/>
+                                        <constraint firstItem="omI-Ff-QKy" firstAttribute="top" secondItem="Zpo-wq-NGI" secondAttribute="bottom" constant="23" id="OCT-dH-ldU"/>
                                         <constraint firstItem="o1K-IS-6eV" firstAttribute="leading" secondItem="xhi-Ob-MvY" secondAttribute="leading" constant="8" id="Wn4-Rg-hze"/>
                                         <constraint firstAttribute="centerY" secondItem="Zpo-wq-NGI" secondAttribute="centerY" id="imM-2e-OTL"/>
                                         <constraint firstAttribute="centerX" secondItem="omI-Ff-QKy" secondAttribute="centerX" id="kXE-Jv-sy1"/>
@@ -507,10 +507,10 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC0-1L-3nQ">
-                                                    <rect key="frame" x="250" y="383" width="100" height="30"/>
+                                                    <rect key="frame" x="250" y="383" width="100" height="40"/>
                                                     <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="hA5-2R-9sd"/>
+                                                        <constraint firstAttribute="height" constant="40" id="hA5-2R-9sd"/>
                                                         <constraint firstAttribute="width" constant="100" id="hcF-ca-taE"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
@@ -522,8 +522,16 @@
                                                         <action selector="onRegisterButtonPressed:" destination="FZI-1l-FhA" eventType="touchUpInside" id="L3U-ha-H56"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T3N-pG-iGQ">
+                                                    <rect key="frame" x="372" y="192" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="DmI-ib-djH"/>
+                                                        <constraint firstAttribute="width" constant="80" id="q7B-KX-XFL"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="T3N-pG-iGQ" firstAttribute="top" secondItem="pAL-c4-lYe" secondAttribute="topMargin" constant="184" id="Gwz-DD-l91"/>
                                                 <constraint firstAttribute="centerX" secondItem="OYf-xe-paI" secondAttribute="centerX" id="OLw-qh-22x"/>
                                                 <constraint firstItem="buq-Rg-LJj" firstAttribute="top" secondItem="pAL-c4-lYe" secondAttribute="topMargin" constant="9" id="QV7-wS-6AC"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="oE6-NY-Vy6" secondAttribute="bottom" constant="68" id="Qmo-eC-AAT"/>
@@ -532,9 +540,11 @@
                                                 <constraint firstAttribute="centerX" secondItem="buq-Rg-LJj" secondAttribute="centerX" id="i3D-GY-g60"/>
                                                 <constraint firstItem="OYf-xe-paI" firstAttribute="top" secondItem="pAL-c4-lYe" secondAttribute="topMargin" constant="261" id="lIa-Yp-4qc"/>
                                                 <constraint firstAttribute="centerX" secondItem="oE6-NY-Vy6" secondAttribute="centerX" id="ozL-py-FHG"/>
+                                                <constraint firstAttribute="centerX" secondItem="T3N-pG-iGQ" secondAttribute="centerX" constant="-112" id="uMU-SM-Now"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="VIPImageView" destination="T3N-pG-iGQ" id="Fet-KS-hrO"/>
                                             <outlet property="detailDescriptionTextView" destination="oE6-NY-Vy6" id="pPb-wC-Ac6"/>
                                             <outlet property="detailEventLabel" destination="gzg-lK-K4x" id="bSq-7e-7hq"/>
                                             <outlet property="detailImageView" destination="buq-Rg-LJj" id="lVx-Ri-5PL"/>
@@ -560,7 +570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fje-eA-Vcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1944" y="-680"/>
+            <point key="canvasLocation" x="1944" y="-681"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="and-gb-smG">

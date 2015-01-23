@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *registerButton;
 
 @property (strong, nonatomic) DetailsViewController *viewController;
+@property (strong, nonatomic) IBOutlet UIImageView *VIPImageView;
 
 @end

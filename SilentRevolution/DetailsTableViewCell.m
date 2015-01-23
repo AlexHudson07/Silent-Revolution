@@ -27,8 +27,6 @@
 
     if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
 
-        NSLog(@"Register the user for the event");
-
         [self registerForEvent];
     }
 
@@ -94,7 +92,12 @@
         PFObject *object = [objects objectAtIndex:0];
         int num = (int)object[@"VIPNumber"];
 
+        if ((num /16 + 1) <5) {
+            self.VIPImageView.image = [UIImage imageNamed:@"Star"];
+        }
+
         NSNumber *number = [NSNumber numberWithInt:((num /16) + 1.0)];
+
         object[@"VIPNumber"] = number;
 
         [object saveInBackground];
