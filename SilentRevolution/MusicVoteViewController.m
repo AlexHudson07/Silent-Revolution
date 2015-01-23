@@ -116,6 +116,7 @@
 
     MusicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
     cell.songLabel.text = tempObject[@"Song"];
+    cell.artistLabel.text = tempObject[@"Artist"];
     cell.object = tempObject;
 
     return cell;

@@ -11,6 +11,7 @@
 #import "DetailsTableViewCell.h"
 
 @interface DetailsViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -18,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     //Navigationbar cutomization
 

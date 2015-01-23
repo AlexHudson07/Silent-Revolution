@@ -19,6 +19,7 @@
             <string>JuraMedium</string>
             <string>JuraMedium</string>
             <string>JuraMedium</string>
+            <string>JuraMedium</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -193,7 +194,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JmW-aD-XOn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JmW-aD-XOn">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -203,8 +204,28 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MvT-dn-lWb" id="0K6-3T-CGM">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYH-A9-iar">
+                                                    <rect key="frame" x="28" y="69" width="330" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="YWA-OP-vlJ"/>
+                                                        <constraint firstAttribute="width" constant="330" id="wyb-rT-Jqt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2Y-U5-KeA">
+                                                    <rect key="frame" x="28" y="28" width="140" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="NKG-9R-eXK"/>
+                                                        <constraint firstAttribute="width" constant="140" id="T6b-ec-Vbg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fU-1M-iXF">
-                                                    <rect key="frame" x="233" y="43" width="80" height="40"/>
+                                                    <rect key="frame" x="482" y="25" width="80" height="40"/>
                                                     <color key="backgroundColor" red="0.51764705879999995" green="0.68235294120000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="luW-kq-ncn"/>
@@ -220,25 +241,26 @@
                                                         <segue destination="Af0-nL-frh" kind="presentation" id="lau-9U-Lgs"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYH-A9-iar">
-                                                    <rect key="frame" x="25" y="47" width="140" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="YWA-OP-vlJ"/>
-                                                        <constraint firstAttribute="width" constant="140" id="wyb-rT-Jqt"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="JuraMedium" family="Jura" pointSize="23"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QYH-A9-iar" firstAttribute="leading" secondItem="0K6-3T-CGM" secondAttribute="leadingMargin" constant="17" id="8PW-bJ-xLj"/>
-                                                <constraint firstAttribute="centerY" secondItem="2fU-1M-iXF" secondAttribute="centerY" constant="1" id="Owb-mY-Shp"/>
-                                                <constraint firstItem="2fU-1M-iXF" firstAttribute="leading" secondItem="QYH-A9-iar" secondAttribute="trailing" constant="68" id="Qay-Mu-qGu"/>
-                                                <constraint firstAttribute="centerY" secondItem="QYH-A9-iar" secondAttribute="centerY" id="Y08-VJ-ENb"/>
+                                                <constraint firstItem="QYH-A9-iar" firstAttribute="leading" secondItem="0K6-3T-CGM" secondAttribute="leadingMargin" constant="20" id="8PW-bJ-xLj"/>
+                                                <constraint firstItem="U2Y-U5-KeA" firstAttribute="leading" secondItem="0K6-3T-CGM" secondAttribute="leadingMargin" constant="20" id="Are-Rl-k3L"/>
+                                                <constraint firstAttribute="centerY" secondItem="2fU-1M-iXF" secondAttribute="centerY" constant="19.5" id="Owb-mY-Shp"/>
+                                                <constraint firstItem="2fU-1M-iXF" firstAttribute="leading" secondItem="QYH-A9-iar" secondAttribute="trailing" constant="118" id="Qay-Mu-qGu"/>
+                                                <constraint firstAttribute="centerY" secondItem="QYH-A9-iar" secondAttribute="centerY" constant="-22" id="Y08-VJ-ENb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2fU-1M-iXF" secondAttribute="trailing" constant="30" id="obc-F8-umG"/>
+                                                <constraint firstAttribute="centerY" secondItem="U2Y-U5-KeA" secondAttribute="centerY" constant="19" id="taf-RR-cfN"/>
+                                                <constraint firstAttribute="centerX" secondItem="U2Y-U5-KeA" secondAttribute="centerX" id="ueF-Ce-Aoy"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="ueF-Ce-Aoy"/>
+                                                    <exclude reference="Qay-Mu-qGu"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="artistLabel" destination="U2Y-U5-KeA" id="eo9-Wl-Xac"/>
                                             <outlet property="songLabel" destination="QYH-A9-iar" id="hmm-yX-m8e"/>
                                             <outlet property="voteButton" destination="2fU-1M-iXF" id="n7o-EB-YPe"/>
                                         </connections>
@@ -264,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RnQ-KK-6mz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2765" y="-106"/>
+            <point key="canvasLocation" x="2765" y="-111"/>
         </scene>
         <!--DJVote View Controller-->
         <scene sceneID="zu4-BV-3zv">
@@ -278,7 +300,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r6E-HX-aG6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r6E-HX-aG6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -567,6 +589,9 @@
                             <constraint firstItem="FJQ-2F-7Le" firstAttribute="top" secondItem="OSe-uD-yQS" secondAttribute="topMargin" id="sYC-Hv-tBN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="FJQ-2F-7Le" id="0Eq-9e-gti"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fje-eA-Vcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -596,6 +621,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UL0-j6-3sc"/>
+        <segue reference="lau-9U-Lgs"/>
     </inferredMetricsTieBreakers>
 </document>

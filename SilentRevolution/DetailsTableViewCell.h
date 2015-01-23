@@ -22,5 +22,6 @@
 
 @property (strong, nonatomic) DetailsViewController *viewController;
 @property (strong, nonatomic) IBOutlet UIImageView *VIPImageView;
+@property BOOL alreadyResgisterdForEvent;
 
 @end

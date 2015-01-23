@@ -238,7 +238,7 @@
     }
 
     else{
-    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Hold On " message:@"You have to be signed in to facebook to vote" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Hold On " message:@"Please log on to Facebook to vote" preferredStyle:UIAlertControllerStyleAlert];
 
     UIAlertAction * LogIn = [UIAlertAction actionWithTitle:@"Log In" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
 
@@ -284,9 +284,7 @@
     [ac addAction:LogIn];
 
     [self presentViewController:ac animated:YES completion:nil];
-
     }
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
