@@ -38,9 +38,9 @@
 
 - (IBAction)onShareButtonPressed:(id)sender {
 
-    NSString *string = @"I just voted for the Silent Revolution";
+    NSString *string = @"I just voted for my favorite Song/DJ at the Silent Revolution event. We are a few more votes away from the DJ playing our song!";
 
-    NSString *url = @"www.feelingutsy.com";
+    NSString *url = @"www.thesilentrevolutionnyc.com";
 
     UIImage *myImage = [UIImage imageNamed:@"share"];
 
