@@ -38,25 +38,6 @@
     self.detailsButton.layer.cornerRadius = 8;
     self.voteButton.layer.cornerRadius = 8;
 
-    //Zooms in to Manhattan
-    CLLocationDegrees longitude = -80.2241;
-    CLLocationDegrees latitude =  25.7977;
-
-    CLLocationCoordinate2D centerCoordinate;
-
-    centerCoordinate.longitude = longitude;
-    centerCoordinate.latitude = latitude;
-
-    MKCoordinateSpan coordinateSpan;
-    coordinateSpan.latitudeDelta = 0.30;
-    coordinateSpan.longitudeDelta = 0.30;
-
-    MKCoordinateRegion region;
-    region.center = centerCoordinate;
-    region.span = coordinateSpan;
-
-    [self.mapView setRegion:region animated:NO];
-
     [self loadLocations];
 
 
@@ -68,7 +49,26 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    //zooms to miami
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
+
+    CLLocationDegrees longitude = -80.2241;
+    CLLocationDegrees latitude =  25.7977;
+
+    CLLocationCoordinate2D centerCoordinate;
+
+    centerCoordinate.longitude = longitude;
+    centerCoordinate.latitude = latitude;
+
+    MKCoordinateSpan coordinateSpan;
+    coordinateSpan.latitudeDelta = .30;
+    coordinateSpan.longitudeDelta = .30;
+
+    MKCoordinateRegion region;
+    region.center = centerCoordinate;
+    region.span = coordinateSpan;
+
+    [self.mapView setRegion:region animated:YES];
 }
 
 #pragma mark - Parse Methods
@@ -295,7 +295,8 @@
         vc.infoArray = self.locationsArray;
     }
 }
--(IBAction)unwindToMapVC:(UIStoryboardSegue *)segue{}
+-(IBAction)unwindToMapVC:(UIStoryboardSegue *)segue{
+}
 
 
 
