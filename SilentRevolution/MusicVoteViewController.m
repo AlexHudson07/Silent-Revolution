@@ -42,13 +42,13 @@
      forState:UIControlStateNormal];
 
     self.musicArray = [NSArray array];
-
-    [self checkingIfCanVote];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
 
     self.navigationController.hidesBarsOnSwipe = YES;
+
+     [self checkingIfCanVote];
 }
 
 - (void)checkingIfCanVote {
@@ -66,6 +66,12 @@
         user = [objects objectAtIndex:0];
 
         NSDate *firstDate = user[@"musicVoteTime"];
+
+        if (!firstDate) {
+            firstDate = [NSDate date];
+            user[@"musicVoteTime"] = firstDate;
+            [user saveInBackground];
+        }
 
         if ([secondDate timeIntervalSinceDate:firstDate] > 120) {
 

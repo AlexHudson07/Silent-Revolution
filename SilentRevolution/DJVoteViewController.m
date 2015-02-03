@@ -67,6 +67,12 @@
 
         NSDate *firstDate = user[@"DJVoteTime"];
 
+        if (!firstDate) {
+            firstDate = [NSDate date];
+            user[@"DJVoteTime"] = firstDate;
+            [user saveInBackground];
+        }
+
         if ([secondDate timeIntervalSinceDate:firstDate] > 1800.0) {
 
             [self loadNames];
