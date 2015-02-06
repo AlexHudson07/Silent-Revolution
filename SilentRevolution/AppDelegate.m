@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Parse Key and Secret
-    //[Parse setApplicationId:@"z9BDO6kif0x6w1mfCAqqGs7MELPeJKeq0WjXu32W"
+    //[Parse setApplicationId:@"z9BDO6kif0x6w1mfCAqq Gs7MELPeJKeq0WjXu32W"
     //              clientKey:@"2Aq88D4GOqINks2rck383wAMC1h2MH8Sqq3RuKAy"];
 
     //Mikes key and secret

@@ -24,6 +24,8 @@
 
     PFUser *user = [PFUser currentUser];
 
+    self.VIPImageView.image = nil;
+
     if ([user[string] boolValue] == true) {
         self.VIPImageView.image = [UIImage imageNamed:@"Star"];
         self.alreadyResgisterdForEvent = true;

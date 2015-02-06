@@ -206,7 +206,7 @@
     UIAlertAction * ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSLog(@"User pressed ok");
 
-    NSURL *url = [NSURL URLWithString:@"http://www.thesilentrevolutionnyc.com/#!events/c9b1"];
+    NSURL *url = [NSURL URLWithString:@"http://www.silentrevolutionmia.com/#!events/c9b1"];
 
     if (![[UIApplication sharedApplication] openURL:url]) {
         NSLog(@"%@%@",@"Failed to open url:",[url description]);
