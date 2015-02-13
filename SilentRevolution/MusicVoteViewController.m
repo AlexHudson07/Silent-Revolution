@@ -25,10 +25,10 @@
     [super viewDidLoad];
 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationItem.title = @"Vote For Your Song";
+    self.navigationItem.title = @"Vote For Your Fav";
 
     NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
-                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:35]
+                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:25]
                                   };
 
     [self.navigationController.navigationBar setTitleTextAttributes: dictionary];

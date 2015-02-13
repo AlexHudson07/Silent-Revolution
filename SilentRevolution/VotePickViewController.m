@@ -25,13 +25,6 @@
     //Navigationbar cutomization
 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationItem.title = @"Vote";
-
-    NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
-                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:35]
-                                  };
-
-    [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
 
     //Back button
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
@@ -45,11 +38,19 @@
 -(void)viewWillAppear:(BOOL)animated{
 
     self.navigationController.hidesBarsOnSwipe = NO;
+    self.navigationItem.title = @"Vote";
+
+    NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:35]
+                                  };
+
+    [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
 }
 
 - (IBAction)musicButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"voteMusicSegue" sender:self];
 }
+
 - (IBAction)DJButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"voteDJSegue" sender:self];
 }
