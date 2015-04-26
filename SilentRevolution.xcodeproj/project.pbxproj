@@ -38,6 +38,7 @@
 		5DE9CB021A3A80A100F18C0A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE9CB011A3A80A100F18C0A /* libsqlite3.dylib */; };
 		5DE9CB061A3A861700F18C0A /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9CB051A3A861700F18C0A /* DetailsViewController.m */; };
 		5DE9CB091A3A867E00F18C0A /* DetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9CB081A3A867E00F18C0A /* DetailsTableViewCell.m */; };
+		FA2DD2791AED518900B6C6E9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2DD2781AED518900B6C6E9 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		5DE9CB051A3A861700F18C0A /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		5DE9CB071A3A867E00F18C0A /* DetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsTableViewCell.h; sourceTree = "<group>"; };
 		5DE9CB081A3A867E00F18C0A /* DetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsTableViewCell.m; sourceTree = "<group>"; };
+		FA2DD2771AED518900B6C6E9 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		FA2DD2781AED518900B6C6E9 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 				5D9EA68C1A6C47EB00319FD3 /* MusicTableViewCell.m */,
 				5DE4D32B1A65E46F0047BEE7 /* ThankYouViewController.h */,
 				5DE4D32C1A65E46F0047BEE7 /* ThankYouViewController.m */,
+				FA2DD2771AED518900B6C6E9 /* SettingsViewController.h */,
+				FA2DD2781AED518900B6C6E9 /* SettingsViewController.m */,
 				5DE9CAD21A3A709500F18C0A /* LaunchScreen.xib */,
 				5D4F4EA41A4139C4003F2144 /* Resources */,
 				5DE9CAC31A3A709500F18C0A /* Supporting Files */,
@@ -343,6 +348,7 @@
 				5DE4D32D1A65E46F0047BEE7 /* ThankYouViewController.m in Sources */,
 				5D9EA68D1A6C47EB00319FD3 /* MusicTableViewCell.m in Sources */,
 				5DE4D32A1A65BCD20047BEE7 /* DJVoteViewController.m in Sources */,
+				FA2DD2791AED518900B6C6E9 /* SettingsViewController.m in Sources */,
 				5DE9CACC1A3A709500F18C0A /* MapViewController.m in Sources */,
 				5DE9CAC91A3A709500F18C0A /* AppDelegate.m in Sources */,
 				5DE9CB091A3A867E00F18C0A /* DetailsTableViewCell.m in Sources */,

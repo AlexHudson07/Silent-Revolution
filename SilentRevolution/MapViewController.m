@@ -29,6 +29,15 @@
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:123.f/255 green:174.f/255 blue:45.f/2555 alpha:1];
 
+    UIImage *sprocket= [UIImage imageNamed:@"sprocket"];
+    UIButton *face1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    face1.bounds = CGRectMake( 10, 0, sprocket.size.width, sprocket.size.height );
+    [face1 addTarget:self action:@selector(goToSettings) forControlEvents:UIControlEventTouchUpInside];
+    [face1 setImage:sprocket forState:UIControlStateNormal];
+    UIBarButtonItem *backButton1 = [[UIBarButtonItem alloc] initWithCustomView:face1];
+    self.navigationItem.rightBarButtonItem = backButton1;
+
+
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = 41.89373984;
     coordinate.longitude = -87.63532979;
@@ -46,6 +55,12 @@
         NSLog(@"User is logged in");
     }
 }
+
+-(void)goToSettings{
+    NSLog(@"Going to settings");
+    [self performSegueWithIdentifier:@"mapToSettingsIdentifier" sender:self];
+}
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -238,53 +253,53 @@
     }
 
     else{
-    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Hold On " message:@"Please log on to Facebook to vote" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Hold On " message:@"Please log on to Facebook to vote" preferredStyle:UIAlertControllerStyleAlert];
 
-    UIAlertAction * LogIn = [UIAlertAction actionWithTitle:@"Log In" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UIAlertAction * LogIn = [UIAlertAction actionWithTitle:@"Log In" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
 
-        // Set permissions required from the facebook user account
-        NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+            // Set permissions required from the facebook user account
+            NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
 
-        // Login PFUser using Facebook
-        [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-            //    [_activityIndicator stopAnimating]; // Hide loading indicator
+            // Login PFUser using Facebook
+            [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+                //    [_activityIndicator stopAnimating]; // Hide loading indicator
 
-            if (!user) {
-                NSString *errorMessage = nil;
-                if (!error) {
-                    NSLog(@"Uh oh. The user cancelled the Facebook login.");
-                    errorMessage = @"Uh oh. The user cancelled the Facebook login.";
+                if (!user) {
+                    NSString *errorMessage = nil;
+                    if (!error) {
+                        NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                        errorMessage = @"Uh oh. The user cancelled the Facebook login.";
+                    } else {
+                        NSLog(@"Uh oh. An error occurred: %@", error);
+                        errorMessage = [error localizedDescription];
+                    }
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error"
+                                                                    message:errorMessage
+                                                                   delegate:nil
+                                                          cancelButtonTitle:nil
+                                                          otherButtonTitles:@"Dismiss", nil];
+                    [alert show];
                 } else {
-                    NSLog(@"Uh oh. An error occurred: %@", error);
-                    errorMessage = [error localizedDescription];
+                    if (user.isNew) {
+                        NSLog(@"User with facebook signed up and logged in!");
+                    } else {
+                        NSLog(@"User with facebook logged in!");
+                    }
+                    [self performSegueWithIdentifier:@"mapToVote" sender:self];
                 }
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error"
-                                                                message:errorMessage
-                                                               delegate:nil
-                                                      cancelButtonTitle:nil
-                                                      otherButtonTitles:@"Dismiss", nil];
-                [alert show];
-            } else {
-                if (user.isNew) {
-                    NSLog(@"User with facebook signed up and logged in!");
-                } else {
-                    NSLog(@"User with facebook logged in!");
-                }
-                [self performSegueWithIdentifier:@"mapToVote" sender:self];
-            }
+            }];
+            [ac dismissViewControllerAnimated:YES completion:nil];
         }];
-        [ac dismissViewControllerAnimated:YES completion:nil];
-    }];
 
-    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        [ac dismissViewControllerAnimated:YES completion:nil];
-    }];
+        UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            [ac dismissViewControllerAnimated:YES completion:nil];
+        }];
 
-    [ac addAction:cancel];
-    [ac addAction:LogIn];
+        [ac addAction:cancel];
+        [ac addAction:LogIn];
 
-    [self presentViewController:ac animated:YES completion:nil];
-    }
+        [self presentViewController:ac animated:YES completion:nil];
+        }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
