@@ -13,8 +13,10 @@
 
 
 @interface DJVoteViewController ()
+
 @property (strong, nonatomic) NSArray *DJArray;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation DJVoteViewController
@@ -43,8 +45,7 @@
     self.DJArray = [NSArray array];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
    // [[UIApplication sharedApplication] setStatusBarHidden:NO];
     self.navigationController.hidesBarsOnSwipe = YES;
 
@@ -98,7 +99,7 @@
     }];
 }
 
-- (void)loadNames{
+- (void)loadNames {
 
     PFQuery * query = [PFQuery queryWithClassName: @"Vote"];
 
@@ -113,13 +114,13 @@
 }
 
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     return self.DJArray.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     PFObject * tempObject = [self.DJArray objectAtIndex:indexPath.row];
 
     DJTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
@@ -129,12 +130,13 @@
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     ThankYouViewController *VC = [segue destinationViewController];
     [VC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
 }
--(BOOL)prefersStatusBarHidden{
+
+-(BOOL)prefersStatusBarHidden {
     return YES;
 }
 

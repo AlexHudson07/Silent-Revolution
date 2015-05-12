@@ -11,15 +11,13 @@
 @implementation MusicTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
 
     self.voteButton.layer.cornerRadius = 8;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    [super setSelected:selected animated:animated];
 }
 
 - (IBAction)onVoteButtonPressed:(id)sender {
@@ -35,8 +33,6 @@
     PFUser *user = [PFUser currentUser];
     user[@"musicVoteTime"] = [NSDate date];
     [user save];
-
-
 }
 
 @end

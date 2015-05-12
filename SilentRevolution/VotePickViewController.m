@@ -9,6 +9,7 @@
 #import "VotePickViewController.h"
 
 @interface VotePickViewController ()
+
 @property (strong, nonatomic) IBOutlet UIButton *voteMusicButton;
 @property (strong, nonatomic) IBOutlet UIButton *voteDJButton;
 
@@ -35,7 +36,7 @@
      forState:UIControlStateNormal];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
 
     self.navigationController.hidesBarsOnSwipe = NO;
     self.navigationItem.title = @"Vote";

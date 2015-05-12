@@ -11,6 +11,7 @@
 #import "DetailsTableViewCell.h"
 
 @interface DetailsViewController () <UITableViewDataSource, UITableViewDelegate>
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -20,11 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     //Navigationbar cutomization
-
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"Details";
 
@@ -43,7 +42,7 @@
      forState:UIControlStateNormal];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
 
     self.navigationController.hidesBarsOnSwipe = YES;
 }
@@ -53,8 +52,7 @@
     return self.infoArray.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PFObject * tempObject = [self.infoArray objectAtIndex:indexPath.row];
 
     DetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
@@ -75,7 +73,7 @@
     return cell;
 }
 
--(BOOL)prefersStatusBarHidden{
+-(BOOL)prefersStatusBarHidden {
     return YES;
 }
 
