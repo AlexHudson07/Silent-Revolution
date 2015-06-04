@@ -11,21 +11,18 @@
 @implementation DJTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
 
     self.voteButton.layer.cornerRadius = 8;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    [super setSelected:selected animated:animated];
 }
 
 - (IBAction)onVoteButtonPressed:(id)sender {
 
     //this incremenets the vote on parse by 1
-
     int num = (int)self.object[@"Count"];
 
     NSNumber *number = [NSNumber numberWithInt:((num /16) + 1.0)];

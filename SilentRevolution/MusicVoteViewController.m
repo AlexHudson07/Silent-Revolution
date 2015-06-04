@@ -44,7 +44,7 @@
     self.musicArray = [NSArray array];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
 
     self.navigationController.hidesBarsOnSwipe = YES;
 
@@ -77,7 +77,7 @@
 
             [self loadNames];
         }
-        else{
+        else {
 
             float voteTime = 120 - [secondDate timeIntervalSinceDate:firstDate];
 
@@ -97,7 +97,7 @@
     }];
 }
 
-- (void)loadNames{
+- (void)loadNames {
 
     PFQuery * query = [PFQuery queryWithClassName: @"MusicVote"];
 
@@ -111,13 +111,11 @@
     }];
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.musicArray.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PFObject * tempObject = [self.musicArray objectAtIndex:indexPath.row];
 
     MusicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
@@ -128,12 +126,14 @@
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     ThankYouViewController *VC = [segue destinationViewController];
     [VC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
 }
--(BOOL)prefersStatusBarHidden{
+
+-(BOOL)prefersStatusBarHidden {
+
     return YES;
 }
 

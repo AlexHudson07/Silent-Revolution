@@ -13,13 +13,12 @@
 @implementation DetailsTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
 
+    // Initialization code
     self.registerButton.layer.cornerRadius = 8;
 }
 
--(void)layoutSubviews
-{
+-(void)layoutSubviews {
     NSString *string = [self.detailEventLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
 
     PFUser *user = [PFUser currentUser];
@@ -33,9 +32,8 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    [super setSelected:selected animated:animated];
 }
 
 - (IBAction)onRegisterButtonPressed:(id)sender {
@@ -96,7 +94,7 @@
     }
 }
 
-- (void) registerForEvent{
+- (void) registerForEvent {
 
     if (self.alreadyResgisterdForEvent) {
         UIAlertController * ac = [UIAlertController alertControllerWithTitle:@"You are already registered for this event" message:nil preferredStyle:UIAlertControllerStyleAlert];

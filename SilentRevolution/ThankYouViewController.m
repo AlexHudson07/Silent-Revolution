@@ -27,13 +27,14 @@
     self.thankYouLabel.layer.cornerRadius = 8;
 
 }
--(void)viewWillAppear:(BOOL)animated
-{
+
+-(void)viewWillAppear:(BOOL)animated {
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
-- (IBAction)onBackButtonPressed:(id)sender {
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 
+- (IBAction)onBackButtonPressed:(id)sender {
+
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onShareButtonPressed:(id)sender {
@@ -60,6 +61,5 @@
 
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
-
 
 @end
