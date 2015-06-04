@@ -29,14 +29,13 @@
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:123.f/255 green:174.f/255 blue:45.f/2555 alpha:1];
 
-    UIImage *sprocket= [UIImage imageNamed:@"sprocket"];
+    UIImage *sprocket= [UIImage imageNamed:@"sprocket2"];
     UIButton *face1 = [UIButton buttonWithType:UIButtonTypeCustom];
     face1.bounds = CGRectMake( 10, 0, sprocket.size.width, sprocket.size.height );
     [face1 addTarget:self action:@selector(goToSettings) forControlEvents:UIControlEventTouchUpInside];
     [face1 setImage:sprocket forState:UIControlStateNormal];
     UIBarButtonItem *backButton1 = [[UIBarButtonItem alloc] initWithCustomView:face1];
     self.navigationItem.rightBarButtonItem = backButton1;
-
 
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = 41.89373984;
@@ -48,7 +47,6 @@
     self.voteButton.layer.cornerRadius = 8;
 
     [self loadLocations];
-
 
     if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
 
@@ -221,7 +219,7 @@
     UIAlertAction * ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSLog(@"User pressed ok");
 
-    NSURL *url = [NSURL URLWithString:@"http://www.silentrevolutionmia.com/#!events/c9b1"];
+    NSURL *url = [NSURL URLWithString:@"http://www.silentrevolutionmia.com"];
 
     if (![[UIApplication sharedApplication] openURL:url]) {
         NSLog(@"%@%@",@"Failed to open url:",[url description]);
