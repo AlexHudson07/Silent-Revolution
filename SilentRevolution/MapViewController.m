@@ -4,7 +4,6 @@
 #import "DetailsViewController.h"
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
-
 @interface MapViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
@@ -24,7 +23,7 @@
     self.navigationItem.title = @"Silent Revolution";
     
     NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
-                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:35],
+                                  NSFontAttributeName:[UIFont fontWithName:@"JuraMedium" size:30],
                                   };
 
     [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
@@ -56,13 +55,13 @@
     }
 }
 
--(void)goToSettings {
+- (void)goToSettings {
     NSLog(@"Going to settings");
     [self performSegueWithIdentifier:@"mapToSettingsIdentifier" sender:self];
 }
 
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     //zooms to miami
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
 
@@ -86,7 +85,7 @@
 }
 
 #pragma mark - Parse Methods
--(void)loadLocations {
+- (void)loadLocations {
 
     PFQuery * query = [PFQuery queryWithClassName: @"Locations"];
 
@@ -134,7 +133,7 @@
     //shows the business over the pin
     pin.canShowCallout = YES;
 
-    pin.image = [UIImage imageNamed:@"pin2"];
+    pin.image = [UIImage imageNamed:@"mapIcon"];
 
      pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
@@ -179,7 +178,7 @@
     [self.mapView setRegion:region animated:YES];
 }
 
--(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
 
     UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"You are about to get directions to the Revolution" message:nil preferredStyle:UIAlertControllerStyleAlert];
 
@@ -304,7 +303,8 @@
     }
 }
 
--(IBAction)unwindToMapVC:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToMapVC:(UIStoryboardSegue *)segue {
+
 }
 
 @end
