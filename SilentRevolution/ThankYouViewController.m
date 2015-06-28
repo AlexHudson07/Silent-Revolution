@@ -43,7 +43,7 @@
 
     NSString *url = @"www.thesilentrevolutionmia.com";
 
-    UIImage *myImage = [UIImage imageNamed:@"share"];
+    UIImage *myImage = [UIImage imageNamed:@"shareIcon"];
 
 
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[string, url, myImage] applicationActivities:nil];
